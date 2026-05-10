@@ -18,6 +18,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rachelhgt.github.io/life-skills-summer-thrills'),
   title: 'Life Skills, Summer Thrills — Winter Park 2026 | Powered by Heal Grow Thrive',
   description:
     '9-week clinical summer program for kids 5–17 with ADHD, autism, anxiety. Covered by Florida Medicaid, Sunshine, CMS, Community Care, and Aetna. Now enrolling Winter Park, FL.',

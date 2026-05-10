@@ -50,12 +50,24 @@ export default function LeadForm({ lang, id }: { lang: Lang; id?: string }) {
     setSubmitting(true);
     try {
       const utm = getStoredUtm();
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, ...utm, language: lang }),
-      });
-      if (!res.ok) throw new Error('submit_failed');
+      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
+      const payload = {
+        ...form,
+        ...utm,
+        language: lang,
+        submitted_at: new Date().toISOString(),
+        source: 'Life Skills Summer Thrills — Winter Park Landing',
+      };
+      if (webhookUrl) {
+        const res = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error('submit_failed');
+      } else {
+        console.warn('[Life Skills Lead] No webhook configured. Payload:', payload);
+      }
 
       // Trigger Meta Pixel Lead event
       if (typeof window !== 'undefined' && window.fbq) {

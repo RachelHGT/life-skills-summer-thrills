@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { Lang } from '@/lib/translations';
 import { translations } from '@/lib/translations';
+import { asset } from '@/lib/basePath';
 
 /**
  * Hero — clean camp/youth program editorial.
@@ -40,7 +41,7 @@ export default function HeroEditorial({ lang }: { lang: Lang }) {
               className="flex items-center gap-4 mb-8"
             >
               <Image
-                src="/logos/hgt-logo.png"
+                src={asset("/logos/hgt-logo.png")}
                 alt="Heal Grow Thrive"
                 width={150}
                 height={150}
@@ -143,7 +144,7 @@ export default function HeroEditorial({ lang }: { lang: Lang }) {
                 {lang === 'en' ? 'In partnership with' : 'En alianza con'}
               </span>
               <Image
-                src="/logos/thrive-blossom-logo.png"
+                src={asset("/logos/thrive-blossom-logo.png")}
                 alt="Thrive and Blossom"
                 width={60}
                 height={60}
@@ -169,7 +170,7 @@ export default function HeroEditorial({ lang }: { lang: Lang }) {
                 className="col-span-12 sm:col-span-8 row-span-6 photo-card aspect-[4/5]"
               >
                 <Image
-                  src="/photos/hero.jpg"
+                  src={asset("/photos/hero.jpg")}
                   alt="Child engaged in therapy session with calming therapy dog"
                   fill
                   className="object-cover img-warm"
@@ -203,7 +204,7 @@ export default function HeroEditorial({ lang }: { lang: Lang }) {
                 className="hidden sm:block col-span-4 row-span-3 photo-card"
               >
                 <Image
-                  src="/photos/group-session.jpg"
+                  src={asset("/photos/group-session.jpg")}
                   alt="Group therapy session"
                   fill
                   className="object-cover img-warm"

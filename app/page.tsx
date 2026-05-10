@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { translations, type Lang } from '@/lib/translations';
 import { captureUtmFromUrl } from '@/lib/utm';
+import { asset } from '@/lib/basePath';
 import LeadForm from '@/components/LeadForm';
 import HeroScrollExpand from '@/components/HeroScrollExpand';
 
@@ -67,7 +68,7 @@ export default function Page() {
         <div className="container-full flex items-center justify-between py-3.5">
           <a href="#top" className="flex items-center gap-2.5 font-bold text-ink">
             <div className="w-9 h-10 relative">
-              <Image src="/logos/hgt-logo.png" alt="Heal Grow Thrive" fill className="object-contain" />
+              <Image src={asset("/logos/hgt-logo.png")} alt="Heal Grow Thrive" fill className="object-contain" />
             </div>
             <span className="hidden sm:flex flex-col leading-[1.05]">
               <span className="text-[14px] font-bold">Life Skills,</span>
@@ -188,7 +189,7 @@ export default function Page() {
           <Reveal className="grid grid-cols-12 gap-4 sm:gap-5 max-w-6xl mx-auto">
             <div className="col-span-12 sm:col-span-5 photo-card aspect-[4/5]">
               <Image
-                src="/photos/cooking-class.jpg"
+                src={asset("/photos/cooking-class.jpg")}
                 alt="Cooking class — kids learning life skills"
                 fill
                 className="object-cover img-warm"
@@ -198,7 +199,7 @@ export default function Page() {
             <div className="col-span-12 sm:col-span-7 grid grid-rows-2 gap-4 sm:gap-5">
               <div className="photo-card relative">
                 <Image
-                  src="/photos/graffiti-art.jpg"
+                  src={asset("/photos/graffiti-art.jpg")}
                   alt="Outdoor art class — creative expression"
                   fill
                   className="object-cover img-warm"
@@ -207,7 +208,7 @@ export default function Page() {
               </div>
               <div className="photo-card relative">
                 <Image
-                  src="/photos/dance-class.jpg"
+                  src={asset("/photos/dance-class.jpg")}
                   alt="Movement and dance therapy"
                   fill
                   className="object-cover img-warm"
@@ -358,7 +359,7 @@ export default function Page() {
             <Reveal className="order-2 lg:order-1">
               <div className="relative aspect-[4/5] photo-card">
                 <Image
-                  src="/photos/outdoor-statue.jpg"
+                  src={asset("/photos/outdoor-statue.jpg")}
                   alt="Heal Grow Thrive — group activity outdoors"
                   fill
                   className="object-cover img-warm"
@@ -434,7 +435,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-8 photo-card aspect-[16/10]"
             >
               <Image
-                src="/photos/pumpkin-patch.jpg"
+                src={asset("/photos/pumpkin-patch.jpg")}
                 alt="Fall field trip — pumpkin patch group photo"
                 fill
                 className="object-cover img-warm"
@@ -451,7 +452,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-4 photo-card aspect-[16/10] sm:aspect-auto"
             >
               <Image
-                src="/photos/holiday-party.jpg"
+                src={asset("/photos/holiday-party.jpg")}
                 alt="Holiday celebration — community party"
                 fill
                 className="object-cover img-warm"
@@ -478,7 +479,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-4 photo-card aspect-[4/3]"
             >
               <Image
-                src="/photos/wagon-ride.jpg"
+                src={asset("/photos/wagon-ride.jpg")}
                 alt="Farm wagon ride field trip"
                 fill
                 className="object-cover img-warm"
@@ -490,7 +491,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-4 photo-card aspect-[4/3]"
             >
               <Image
-                src="/photos/workshop-fears.jpg"
+                src={asset("/photos/workshop-fears.jpg")}
                 alt="Group workshop — facing fears"
                 fill
                 className="object-cover img-warm"
@@ -502,7 +503,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-4 photo-card aspect-[4/3]"
             >
               <Image
-                src="/photos/flower-arranging.jpg"
+                src={asset("/photos/flower-arranging.jpg")}
                 alt="Flower arranging workshop"
                 fill
                 className="object-cover img-warm"
@@ -524,7 +525,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-5 photo-card aspect-[4/3]"
             >
               <Image
-                src="/photos/culture-projects.jpg"
+                src={asset("/photos/culture-projects.jpg")}
                 alt="Cultural projects — Trust Love Forgiveness"
                 fill
                 className="object-cover img-warm"
@@ -541,7 +542,7 @@ export default function Page() {
               className="col-span-12 sm:col-span-7 photo-card aspect-[16/9]"
             >
               <Image
-                src="/photos/beach-portrait.jpg"
+                src={asset("/photos/beach-portrait.jpg")}
                 alt="Beach field trip portrait"
                 fill
                 className="object-cover img-warm"
@@ -659,7 +660,7 @@ export default function Page() {
             <div>
               <div className="flex items-center gap-2.5 mb-4">
                 <div className="w-9 h-10 relative bg-white/5 rounded p-1">
-                  <Image src="/logos/hgt-logo.png" alt="Heal Grow Thrive" fill className="object-contain" />
+                  <Image src={asset("/logos/hgt-logo.png")} alt="Heal Grow Thrive" fill className="object-contain" />
                 </div>
                 <div className="flex flex-col leading-[1.05]">
                   <span className="font-bold text-[15px]">Life Skills,</span>
@@ -719,7 +720,7 @@ export default function Page() {
             <div className="flex items-center gap-2">
               <span className="opacity-70">{lang === 'en' ? 'In partnership with' : 'En alianza con'}</span>
               <Image
-                src="/logos/thrive-blossom-logo.png"
+                src={asset("/logos/thrive-blossom-logo.png")}
                 alt="Thrive and Blossom"
                 width={50}
                 height={50}

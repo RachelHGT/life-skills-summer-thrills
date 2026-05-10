@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import ScrollExpandMedia from './ScrollExpandMedia';
 import type { Lang } from '@/lib/translations';
 import { translations } from '@/lib/translations';
-import { asset } from '@/lib/basePath';
 
 export default function HeroScrollExpand({ lang }: { lang: Lang }) {
   const t = translations[lang];
@@ -13,8 +12,8 @@ export default function HeroScrollExpand({ lang }: { lang: Lang }) {
   return (
     <ScrollExpandMedia
       mediaType='image'
-      mediaSrc={asset('/photos/hero.jpg')}
-      bgImageSrc={asset('/photos/beach-walk.jpg')}
+      mediaSrc='/photos/hero.jpg'
+      bgImageSrc='/photos/beach-walk.jpg'
       title={t.hero.brand}
       titleSplit={['Life Skills,', 'Summer Thrills']}
       date={t.hero.sceneDate}
@@ -40,7 +39,7 @@ export default function HeroScrollExpand({ lang }: { lang: Lang }) {
               {t.hero.poweredBy}
             </span>
             <Image
-              src={asset("/logos/hgt-logo.png")}
+              src="/logos/hgt-logo.png"
               alt='Heal Grow Thrive'
               width={80}
               height={80}
@@ -147,7 +146,7 @@ export default function HeroScrollExpand({ lang }: { lang: Lang }) {
             {t.hero.partnerLabel}
           </span>
           <Image
-            src={asset("/logos/thrive-blossom-logo.png")}
+            src="/logos/thrive-blossom-logo.png"
             alt='Thrive and Blossom'
             width={60}
             height={60}

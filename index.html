@@ -227,8 +227,10 @@
   .faq .answer{padding:0 26px 24px;color:var(--ink-soft);line-height:1.65}
 
   /* Form */
-  .form-section{position:relative;background:linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);color:#fff;padding:104px 0;overflow:hidden}
-  .form-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 20%, rgba(255,255,255,.07), transparent 40%),radial-gradient(circle at 88% 80%, rgba(232,90,79,.18), transparent 50%);pointer-events:none}
+  .form-section{position:relative;color:#fff;padding:104px 0;overflow:hidden;background:#1F635A}
+  .form-section .form-bg{position:absolute;inset:0;background:url('assets/photos/pool-ball.jpg') center/cover;background-attachment:fixed;z-index:0;opacity:.55}
+  .form-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(42,128,116,.78) 0%, rgba(31,99,90,.92) 100%);z-index:1;pointer-events:none}
+  @media (max-width:920px){.form-section .form-bg{background-attachment:scroll}}
   .form-section .container-narrow{position:relative}
   .form-section h2{color:#fff;margin-bottom:14px}
   .form-section .lead-sub{color:rgba(255,255,255,.85);font-size:1.1rem;text-align:center;margin:0 auto 40px;max-width:560px}
@@ -637,19 +639,6 @@
   </div>
 </section>
 
-<section class="photo-band tint-pool reveal" aria-label="Pool day every week">
-  <div class="photo-band-bg" style="background-image:url('assets/photos/pool-ball.jpg')"></div>
-  <span class="activity-pin"><span class="en">Pool · Every Week</span><span class="es">Piscina · Cada Semana</span><span class="cr">Pisin · Chak Semèn</span></span>
-  <div class="inner">
-    <div class="quote-mark">"</div>
-    <h2>
-      <span class="en">Float into the best summer of their lives.</span>
-      <span class="es">A flotar en el mejor verano de sus vidas.</span>
-      <span class="cr">Flote nan pi bon ete lavi yo.</span>
-    </h2>
-  </div>
-</section>
-
 <section class="has-pattern">
   <div class="container">
     <div class="section-title reveal">
@@ -731,6 +720,7 @@
 </section>
 
 <section id="apply" class="form-section">
+  <div class="form-bg"></div>
   <div class="container-narrow">
     <div class="section-title reveal">
       <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span></span>

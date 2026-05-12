@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="assets/logos/hgt-clean.png" />
 <link rel="preload" as="image" href="assets/photos/hero.jpg" />
-<link rel="preload" as="image" href="assets/photos/beach-walk.jpg" />
+<link rel="preload" as="image" href="assets/photos/hero-bg.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -74,15 +74,14 @@
   nav.show{transform:translateY(0)}
   nav .row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
   .brand-stack{display:flex;align-items:center;gap:14px}
-  .logo-pair{display:flex;align-items:center;gap:10px}
+  .logo-pair{display:flex;align-items:center;gap:14px}
   .logo-pair img{height:38px;width:auto;object-fit:contain}
-  .logo-pair .x{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-light);font-size:18px;font-weight:400}
   .brand-name{display:flex;flex-direction:column;line-height:1.05}
   .brand-name .t1{font-family:'Fraunces',serif;font-weight:600;font-size:14px;color:var(--ink)}
   .brand-name .t2{font-size:9px;font-weight:500;color:var(--ink-light);letter-spacing:.07em;text-transform:uppercase;margin-top:2px}
   .nav-actions{display:flex;align-items:center;gap:12px}
   .lang-toggle{display:inline-flex;background:rgba(31,41,55,.06);border-radius:999px;padding:3px}
-  .lang-toggle button{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--ink-soft);transition:all .2s}
+  .lang-toggle button{padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--ink-soft);transition:all .2s}
   .lang-toggle button.active{background:var(--ink);color:var(--cream)}
   .nav-cta{padding:10px 18px;font-size:14px}
 
@@ -91,7 +90,7 @@
   .hero-stage{position:relative;height:100dvh;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:1;transition:opacity .15s ease}
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 100%)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(15,40,30,.55) 100%)}
   .hero-title-row{position:absolute;top:18%;left:0;right:0;z-index:3;display:flex;justify-content:center;align-items:center;gap:0;pointer-events:none;font-family:'Fraunces',serif;font-weight:600;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.4);font-size:clamp(2.2rem,7vw,5.5rem);letter-spacing:-.02em;line-height:1;transition:transform .15s ease,opacity .15s ease;padding:0 16px;text-align:center;flex-wrap:wrap}
   .hero-title-row .word{display:inline-block;will-change:transform}
   .hero-title-row .word.left{transform:translateX(calc(var(--tx,0) * -1px))}
@@ -111,11 +110,10 @@
   .hero-reveal{position:relative;z-index:5;padding:72px 24px 96px;text-align:center;background:var(--cream);opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
   .hero-section.expanded .hero-reveal{opacity:1;transform:none}
   .hero-reveal-inner{max-width:780px;margin:0 auto}
-  .presented-by{display:inline-flex;align-items:center;gap:18px;margin-bottom:30px;padding:14px 22px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-sm)}
-  .presented-by .label{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light)}
-  .presented-by .pair{display:flex;align-items:center;gap:14px}
-  .presented-by img{height:36px;width:auto;object-fit:contain}
-  .presented-by .x{color:var(--ink-light);font-size:14px;font-family:'Fraunces',serif;font-style:italic}
+  .presented-by{display:inline-flex;align-items:center;gap:18px;margin-bottom:30px;padding:14px 24px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-sm)}
+  .presented-by .label{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);white-space:nowrap}
+  .presented-by .pair{display:flex;align-items:center;gap:18px}
+  .presented-by img{height:38px;width:auto;object-fit:contain}
   .hero-reveal h1{margin-bottom:22px}
   .hero-reveal .sub{font-size:1.15rem;color:var(--ink-soft);margin:0 auto 32px;max-width:580px;line-height:1.6}
   .coverage-badge{display:inline-flex;align-items:center;gap:14px;padding:14px 22px 14px 16px;background:#fff;border:1.5px solid var(--teal-soft);border-radius:18px;box-shadow:var(--shadow-sm);margin-bottom:32px;text-align:left}
@@ -133,7 +131,7 @@
   .section-title h2{margin-bottom:14px}
   .section-title p{color:var(--ink-soft);font-size:1.08rem}
 
-  /* Activities — photo + activity-pin */
+  /* Activities */
   .activities{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .photo-card{position:relative;background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column}
   .photo-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
@@ -145,6 +143,31 @@
   .photo-card .body{padding:22px 22px 26px}
   .photo-card h3{font-size:1.22rem;margin-bottom:6px}
   .photo-card p{color:var(--ink-soft);font-size:.94rem;margin:0;line-height:1.55}
+
+  /* Full-bleed parallax photo band */
+  .photo-band{position:relative;min-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:96px 24px;background-color:#0F1A1F}
+  .photo-band-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed;z-index:0}
+  .photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(15,99,90,.65) 100%);z-index:1}
+  .photo-band .inner{position:relative;z-index:2;max-width:760px}
+  .photo-band .activity-pin{position:absolute;top:24px;left:24px;z-index:2}
+  .photo-band .quote-mark{font-family:'Fraunces',serif;font-size:5rem;line-height:.6;opacity:.55;color:#FFCBC2;margin-bottom:8px}
+  .photo-band h2{color:#fff;margin-bottom:18px;font-size:clamp(2rem,4.4vw,3.4rem)}
+  .photo-band .attrib{margin-top:24px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+  @media (max-width:920px){.photo-band-bg{background-attachment:scroll}.photo-band{min-height:440px;padding:72px 24px}}
+
+  /* Subtle SVG dot texture for cream-warm sections */
+  .has-pattern{
+    background-color:var(--cream-warm);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(42,128,116,.08) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  .has-pattern-light{
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(42,128,116,.06) 1px, transparent 0);
+    background-size:26px 26px;
+  }
 
   /* Story split */
   .story-section{background:var(--cream-warm);padding:104px 0}
@@ -231,7 +254,6 @@
   footer .legal{font-size:12px;color:rgba(248,244,237,.55);max-width:340px;line-height:1.6}
   footer .copy{margin-top:40px;padding-top:24px;border-top:1px solid rgba(248,244,237,.1);font-size:12px;color:rgba(248,244,237,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 
-  /* Sticky CTA */
   .sticky-cta{position:fixed;left:14px;right:14px;bottom:14px;z-index:40;background:var(--coral);color:#fff;padding:14px 20px;border-radius:999px;box-shadow:0 8px 30px rgba(232,90,79,.45);font-weight:600;font-size:15px;text-align:center;display:none}
 
   /* Responsive */
@@ -259,12 +281,14 @@
     .lead-form .row{grid-template-columns:1fr}
     .brand-name{display:none}
     .logo-pair img{height:32px}
-    .presented-by{flex-direction:column;gap:10px;padding:14px 18px}
+    .presented-by{flex-direction:column;gap:12px;padding:14px 18px}
     .hero-trust{gap:8px 14px}
   }
 
-  [data-lang="en"] .es{display:none}
-  [data-lang="es"] .en{display:none}
+  /* ── Language visibility (3-way: en / es / cr) ── */
+  [data-lang="en"] .es,[data-lang="en"] .cr{display:none}
+  [data-lang="es"] .en,[data-lang="es"] .cr{display:none}
+  [data-lang="cr"] .en,[data-lang="cr"] .es{display:none}
 </style>
 </head>
 <body>
@@ -274,21 +298,21 @@
     <a href="#top" class="brand-stack">
       <div class="logo-pair">
         <img src="assets/logos/hgt-clean.png" alt="Heal Grow Thrive" />
-        <span class="x">×</span>
         <img src="assets/logos/thrive-blossom-clean.png" alt="Thrive &amp; Blossom" />
       </div>
       <span class="brand-name">
         <span class="t1">Life Skills, Summer Thrills</span>
-        <span class="t2">Heal Grow Thrive × Thrive &amp; Blossom</span>
+        <span class="t2">Heal Grow Thrive · Thrive &amp; Blossom</span>
       </span>
     </a>
     <div class="nav-actions">
       <div class="lang-toggle" role="group" aria-label="Language">
         <button data-set-lang="en" class="active" type="button">EN</button>
         <button data-set-lang="es" type="button">ES</button>
+        <button data-set-lang="cr" type="button">KR</button>
       </div>
       <a href="#apply" class="btn btn-primary nav-cta">
-        <span class="en">Apply Today</span><span class="es">Aplica Hoy</span>
+        <span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span>
       </a>
     </div>
   </div>
@@ -296,10 +320,10 @@
 
 <header id="top" class="hero-section">
   <div class="hero-stage" id="heroStage">
-    <div class="hero-bg" id="heroBg"><img src="assets/photos/beach-walk.jpg" alt="" /></div>
+    <div class="hero-bg" id="heroBg"><img src="assets/photos/hero-bg.jpg" alt="" /></div>
     <div class="hero-title-row" id="heroTitle">
-      <span class="word left"><span class="en">Life Skills,</span><span class="es">Habilidades</span></span>
-      <span class="word right"><span class="en">Summer Thrills</span><span class="es">de Verano</span></span>
+      <span class="word left">Life Skills,</span>
+      <span class="word right">Summer Thrills</span>
     </div>
     <div class="hero-media" id="heroMedia">
       <img src="assets/photos/hero.jpg" alt="A summer day at Life Skills, Summer Thrills" />
@@ -308,9 +332,10 @@
       <div class="hero-date">
         <span class="en">June 8 – August 7, 2026 · Winter Park, FL</span>
         <span class="es">8 de Junio – 7 de Agosto, 2026 · Winter Park, FL</span>
+        <span class="cr">8 Jen – 7 Out, 2026 · Winter Park, FL</span>
       </div>
       <div class="scroll-hint" id="scrollHint" role="button" tabindex="0" aria-label="Scroll to begin">
-        <span class="en">Scroll to begin</span><span class="es">Desplaza para comenzar</span>
+        <span class="en">Scroll to begin</span><span class="es">Desplaza para comenzar</span><span class="cr">Glise pou kòmanse</span>
         <div class="arrow"></div>
       </div>
     </div>
@@ -319,10 +344,9 @@
   <div class="hero-reveal">
     <div class="hero-reveal-inner">
       <div class="presented-by">
-        <span class="label"><span class="en">Presented by</span><span class="es">Presentado por</span></span>
+        <span class="label"><span class="en">Presented by</span><span class="es">Presentado por</span><span class="cr">Prezante pa</span></span>
         <span class="pair">
           <img src="assets/logos/hgt-clean.png" alt="Heal Grow Thrive" />
-          <span class="x">×</span>
           <img src="assets/logos/thrive-blossom-clean.png" alt="Thrive &amp; Blossom" />
         </span>
       </div>
@@ -330,35 +354,41 @@
       <h1>
         <span class="en">A free summer your kids will <em>always</em> remember.</span>
         <span class="es">Un verano gratis que tus hijos <em>siempre</em> van a recordar.</span>
+        <span class="cr">Yon ete gratis pitit ou yo ap <em>toujou</em> sonje.</span>
       </h1>
 
       <p class="sub">
         <span class="en">9 weeks of pool days, field trips, in-house chef meals, art, chess, and karate — in a safe, caring space in Winter Park, FL. Ages 5–17.</span>
         <span class="es">9 semanas de piscina, paseos, comidas hechas en casa por nuestro chef, arte, ajedrez y karate — en un lugar seguro y acogedor en Winter Park, FL. Edades 5 a 17.</span>
+        <span class="cr">9 semèn ak jou pisin, vwayaj, manje chef andedan, atizay, echèk, ak karate — nan yon espas san danje epi ki pran swen nan Winter Park, FL. Laj 5 a 17.</span>
       </p>
 
       <div class="coverage-badge">
         <div class="dollar">$0</div>
         <div>
-          <div class="top"><span class="en">Fully covered by Florida Medicaid &amp; major insurance</span><span class="es">100% cubierto por Florida Medicaid y seguros mayores</span></div>
+          <div class="top">
+            <span class="en">Fully covered by Florida Medicaid &amp; major insurance</span>
+            <span class="es">100% cubierto por Florida Medicaid y seguros mayores</span>
+            <span class="cr">Antyèman kouvri pa Florida Medicaid ak gwo asirans</span>
+          </div>
           <div class="bot">Sunshine · CMS · Community Care Plan · Aetna</div>
         </div>
       </div>
 
       <div class="hero-ctas">
         <a href="#apply" class="btn btn-primary btn-lg">
-          <span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span>
+          <span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span><span class="cr">Aplike Jodi a →</span>
         </a>
         <a href="#how" class="btn btn-ghost btn-lg">
-          <span class="en">How it works</span><span class="es">Cómo funciona</span>
+          <span class="en">How it works</span><span class="es">Cómo funciona</span><span class="cr">Kòman li mache</span>
         </a>
       </div>
 
       <div class="hero-trust">
-        <span><span class="en">AHCA Certified</span><span class="es">Certificado AHCA</span></span>
-        <span><span class="en">Level-2 Background Screened Staff</span><span class="es">Personal con Verificación Nivel-2</span></span>
-        <span><span class="en">12:1 Care Ratio</span><span class="es">Proporción 12:1</span></span>
-        <span><span class="en">Bilingual EN · ES · Creole</span><span class="es">Bilingüe EN · ES · Creole</span></span>
+        <span><span class="en">AHCA Certified</span><span class="es">Certificado AHCA</span><span class="cr">Sètifye AHCA</span></span>
+        <span><span class="en">Level-2 Background Screened Staff</span><span class="es">Personal con Verificación Nivel-2</span><span class="cr">Anplwaye Verifye Nivo-2</span></span>
+        <span><span class="en">12:1 Care Ratio</span><span class="es">Proporción 12:1</span><span class="cr">Pwopòsyon Swen 12:1</span></span>
+        <span><span class="en">Trilingual EN · ES · Creole</span><span class="es">Trilingüe EN · ES · Creole</span><span class="cr">Trileng EN · ES · Kreyòl</span></span>
       </div>
     </div>
   </div>
@@ -367,98 +397,114 @@
 <section>
   <div class="container">
     <div class="section-title reveal">
-      <span class="eyebrow"><span class="en">A summer they'll talk about all year</span><span class="es">Un verano del que hablarán todo el año</span></span>
-      <h2><span class="en">Real fun. Real friendships. Real food.</span><span class="es">Diversión real. Amigos reales. Comida real.</span></h2>
-      <p><span class="en">Every day is built to help your child grow — while having a blast.</span><span class="es">Cada día está diseñado para que tu hijo crezca — y se divierta como nunca.</span></p>
+      <span class="eyebrow"><span class="en">A summer they'll talk about all year</span><span class="es">Un verano del que hablarán todo el año</span><span class="cr">Yon ete y ap pale toute lane</span></span>
+      <h2><span class="en">Real fun. Real friendships. Real food.</span><span class="es">Diversión real. Amigos reales. Comida real.</span><span class="cr">Vrè plezi. Vrè zanmi. Vrè manje.</span></h2>
+      <p><span class="en">Every day is built to help your child grow — while having a blast.</span><span class="es">Cada día está diseñado para que tu hijo crezca — y se divierta como nunca.</span><span class="cr">Chak jou fèt pou ede pitit ou grandi — pandan l ap pran anpil plezi.</span></p>
     </div>
 
     <div class="activities">
       <article class="photo-card reveal">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Pool Day</span><span class="es">Día de Piscina</span></span>
+          <span class="activity-pin"><span class="en">Pool Day</span><span class="es">Día de Piscina</span><span class="cr">Jou Pisin</span></span>
           <img src="assets/photos/beach-walk.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Weekly Pool Days</span><span class="es">Días de Piscina Semanales</span></h3>
-          <p><span class="en">Every week, the kids cool off, play, and learn water confidence under our supervision.</span><span class="es">Cada semana, los niños se refrescan, juegan, y aprenden seguridad en el agua bajo nuestra supervisión.</span></p>
+          <h3><span class="en">Weekly Pool Days</span><span class="es">Días de Piscina Semanales</span><span class="cr">Jou Pisin chak Semèn</span></h3>
+          <p><span class="en">Every week, the kids cool off, play, and learn water confidence under our supervision.</span><span class="es">Cada semana, los niños se refrescan, juegan, y aprenden seguridad en el agua bajo nuestra supervisión.</span><span class="cr">Chak semèn, timoun yo refwadi, jwe, epi aprann konfyans nan dlo anba sipèvizyon nou.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal reveal-delay-1">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Field Trip</span><span class="es">Paseo</span></span>
+          <span class="activity-pin"><span class="en">Field Trip</span><span class="es">Paseo</span><span class="cr">Vwayaj</span></span>
           <img src="assets/photos/wagon-ride.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Field Trips That Wow</span><span class="es">Paseos Inolvidables</span></h3>
-          <p><span class="en">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, water parks &amp; more.</span><span class="es">Lion Country Safari, Frost Museum, Wynwood Walls, Río Oleta, parques de agua y más.</span></p>
+          <h3><span class="en">Field Trips That Wow</span><span class="es">Paseos Inolvidables</span><span class="cr">Vwayaj k ap Etone Ou</span></h3>
+          <p><span class="en">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, water parks &amp; more.</span><span class="es">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, parques acuáticos y más.</span><span class="cr">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, pak dlo ak plis ankò.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal reveal-delay-2">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Cooking Class</span><span class="es">Clase de Cocina</span></span>
+          <span class="activity-pin"><span class="en">Cooking Class</span><span class="es">Clase de Cocina</span><span class="cr">Klas Kwizin</span></span>
           <img src="assets/photos/cooking-class.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">In-House Chef Meals</span><span class="es">Comidas de Chef en Casa</span></h3>
-          <p><span class="en">Home-cooked food made fresh on-site every day — not packaged, not catered. Allergies accommodated.</span><span class="es">Comida hecha fresca en el lugar todos los días — no empacada, no catering. Acomodamos alergias.</span></p>
+          <h3><span class="en">In-House Chef Meals</span><span class="es">Comidas de Chef en Casa</span><span class="cr">Manje Chef Andedan</span></h3>
+          <p><span class="en">Home-cooked food made fresh on-site every day — not packaged, not catered. Allergies accommodated.</span><span class="es">Comida hecha fresca en el lugar todos los días — no empacada, no catering. Acomodamos alergias.</span><span class="cr">Manje fèt fre sou plas chak jou — pa nan pakèt, pa katera. N akomode alèji.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Art &amp; Crafts</span><span class="es">Arte y Manualidades</span></span>
+          <span class="activity-pin"><span class="en">Art &amp; Crafts</span><span class="es">Arte y Manualidades</span><span class="cr">Atizay ak Atizana</span></span>
           <img src="assets/photos/graffiti-art.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Art, Chess, Music &amp; Karate</span><span class="es">Arte, Ajedrez, Música y Karate</span></h3>
-          <p><span class="en">Daily extracurriculars they'd never get at a regular camp — they pick what they love.</span><span class="es">Actividades diarias que no encontrarían en un campamento normal — eligen lo que más aman.</span></p>
+          <h3><span class="en">Art, Chess, Music &amp; Karate</span><span class="es">Arte, Ajedrez, Música y Karate</span><span class="cr">Atizay, Echèk, Mizik ak Karate</span></h3>
+          <p><span class="en">Daily extracurriculars they'd never get at a regular camp — they pick what they love.</span><span class="es">Actividades diarias que no encontrarían en un campamento normal — eligen lo que más aman.</span><span class="cr">Aktivite chak jou yo p ap janm jwenn nan yon kan òdinè — yo chwazi sa yo renmen.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal reveal-delay-1">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Dance Class</span><span class="es">Clase de Baile</span></span>
+          <span class="activity-pin"><span class="en">Dance Class</span><span class="es">Clase de Baile</span><span class="cr">Klas Dans</span></span>
           <img src="assets/photos/dance-class.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Dance &amp; Movement</span><span class="es">Baile y Movimiento</span></h3>
-          <p><span class="en">Weekly dance and movement sessions to build coordination, confidence, and pure joy.</span><span class="es">Sesiones semanales de baile y movimiento para desarrollar coordinación, confianza y alegría.</span></p>
+          <h3><span class="en">Dance &amp; Movement</span><span class="es">Baile y Movimiento</span><span class="cr">Dans ak Mouvman</span></h3>
+          <p><span class="en">Weekly dance and movement sessions to build coordination, confidence, and pure joy.</span><span class="es">Sesiones semanales de baile y movimiento para desarrollar coordinación, confianza y alegría.</span><span class="cr">Sesyon dans ak mouvman chak semèn pou bati kowòdinasyon, konfyans, ak vrè jwa.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal reveal-delay-2">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Calm Mornings</span><span class="es">Mañanas Tranquilas</span></span>
+          <span class="activity-pin"><span class="en">Calm Mornings</span><span class="es">Mañanas Tranquilas</span><span class="cr">Maten Kalm</span></span>
           <img src="assets/photos/workshop-fears.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Mindful Mornings</span><span class="es">Mañanas Conscientes</span></h3>
-          <p><span class="en">A peaceful start to every day to help kids focus, breathe, and learn to know themselves.</span><span class="es">Un inicio tranquilo cada día para ayudarles a enfocarse, respirar y conocerse a sí mismos.</span></p>
+          <h3><span class="en">Mindful Mornings</span><span class="es">Mañanas Conscientes</span><span class="cr">Maten Konsyan</span></h3>
+          <p><span class="en">A peaceful start to every day to help kids focus, breathe, and learn to know themselves.</span><span class="es">Un inicio tranquilo cada día para ayudarles a enfocarse, respirar y conocerse a sí mismos.</span><span class="cr">Yon kòmansman trankil chak jou pou ede timoun yo konsantre, respire, ak konnen tèt yo.</span></p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="story-section">
+<section class="photo-band reveal" aria-label="Joy at camp">
+  <div class="photo-band-bg" style="background-image:url('assets/photos/kids-field.jpg')"></div>
+  <span class="activity-pin"><span class="en">Joy · Every Single Day</span><span class="es">Alegría · Todos los Días</span><span class="cr">Jwa · Chak Jou</span></span>
+  <div class="inner">
+    <div class="quote-mark">"</div>
+    <h2>
+      <span class="en">Where kids come back happier than they left.</span>
+      <span class="es">Donde los niños regresan más felices de cómo llegaron.</span>
+      <span class="cr">Kote timoun yo retounen pi kontan pase yo te ye lè yo te vini.</span>
+    </h2>
+    <div class="attrib"><span class="en">— What our parents tell us</span><span class="es">— Lo que nos dicen los padres</span><span class="cr">— Sa paran nou yo di nou</span></div>
+  </div>
+</section>
+
+<section class="story-section has-pattern">
   <div class="container">
     <div class="story">
       <div class="story-photo reveal">
-        <span class="activity-pin"><span class="en">Field Trip · Pumpkin Patch</span><span class="es">Paseo · Granja de Calabazas</span></span>
+        <span class="activity-pin"><span class="en">Field Trip · Pumpkin Patch</span><span class="es">Paseo · Granja de Calabazas</span><span class="cr">Vwayaj · Jaden Joumou</span></span>
         <img src="assets/photos/pumpkin-patch.jpg" alt="" loading="lazy" />
       </div>
       <div class="reveal reveal-delay-1">
-        <span class="eyebrow"><span class="en">Real moments</span><span class="es">Momentos reales</span></span>
-        <h2><span class="en">More than a camp. A second home.</span><span class="es">Más que un campamento. Una segunda casa.</span></h2>
+        <span class="eyebrow"><span class="en">Real moments</span><span class="es">Momentos reales</span><span class="cr">Vrè moman</span></span>
+        <h2><span class="en">More than a camp. A second home.</span><span class="es">Más que un campamento. Una segunda casa.</span><span class="cr">Plis pase yon kan. Yon dezyèm kay.</span></h2>
         <p>
           <span class="en">Every week we take the kids somewhere new — pumpkin patches, museums, beaches, safari parks. They come home with stories, photos, and friendships that last all year long.</span>
           <span class="es">Cada semana llevamos a los niños a un lugar nuevo — granjas de calabazas, museos, playas, safaris. Vuelven a casa con historias, fotos, y amistades que duran todo el año.</span>
+          <span class="cr">Chak semèn nou mennen timoun yo nan yon nouvo kote — jaden joumou, mize, plaj, pak safari. Yo retounen lakay yo ak istwa, foto, ak amitye ki dire toute lane.</span>
         </p>
         <div class="quote">
           <span class="en">"My son comes home tired, happy, and asking when's the next field trip."</span>
           <span class="es">"Mi hijo regresa cansado, feliz, y preguntando cuándo es el próximo paseo."</span>
+          <span class="cr">"Pitit gason m retounen lakay fatige, kontan, epi mande ki lè pwochen vwayaj la ye."</span>
         </div>
       </div>
     </div>
@@ -468,24 +514,24 @@
 <section class="trust-section">
   <div class="container">
     <div class="section-title reveal">
-      <h2><span class="en">Why parents trust us with their kids.</span><span class="es">Por qué los padres confían sus hijos a nosotros.</span></h2>
+      <h2><span class="en">Why parents trust us with their kids.</span><span class="es">Por qué los padres confían sus hijos a nosotros.</span><span class="cr">Poukisa paran yo fè nou konfyans ak pitit yo.</span></h2>
     </div>
     <div class="grid">
       <div class="trust-stat reveal">
         <div class="num">12:1</div>
-        <div class="label"><span class="en">Care ratio per qualified adult</span><span class="es">Proporción por adulto calificado</span></div>
+        <div class="label"><span class="en">Care ratio per qualified adult</span><span class="es">Proporción por adulto calificado</span><span class="cr">Pwopòsyon swen pa adilt kalifye</span></div>
       </div>
       <div class="trust-stat reveal reveal-delay-1">
         <div class="num">100%</div>
-        <div class="label"><span class="en">Staff Level-2 background screened</span><span class="es">Personal con verificación Nivel-2</span></div>
+        <div class="label"><span class="en">Staff Level-2 background screened</span><span class="es">Personal con verificación Nivel-2</span><span class="cr">Anplwaye verifye Nivo-2</span></div>
       </div>
       <div class="trust-stat reveal reveal-delay-2">
         <div class="num">3</div>
-        <div class="label"><span class="en">Languages on staff (EN · ES · Creole)</span><span class="es">Idiomas (EN · ES · Creole)</span></div>
+        <div class="label"><span class="en">Languages on staff (EN · ES · Creole)</span><span class="es">Idiomas (EN · ES · Creole)</span><span class="cr">Lang sou anplwaye (EN · ES · Kreyòl)</span></div>
       </div>
       <div class="trust-stat reveal reveal-delay-3">
         <div class="num">AHCA</div>
-        <div class="label"><span class="en">Florida-certified facility</span><span class="es">Centro certificado en Florida</span></div>
+        <div class="label"><span class="en">Florida-certified facility</span><span class="es">Centro certificado en Florida</span><span class="cr">Enstalasyon sètifye Florid</span></div>
       </div>
     </div>
   </div>
@@ -495,15 +541,16 @@
   <div class="container">
     <div class="story flip">
       <div class="story-photo reveal">
-        <span class="activity-pin"><span class="en">Workshop · Flower Arranging</span><span class="es">Taller · Arreglos Florales</span></span>
+        <span class="activity-pin"><span class="en">Workshop · Flower Arranging</span><span class="es">Taller · Arreglos Florales</span><span class="cr">Atelye · Aranjman Flè</span></span>
         <img src="assets/photos/flower-arranging.jpg" alt="" loading="lazy" />
       </div>
       <div class="reveal reveal-delay-1">
-        <span class="eyebrow"><span class="en">Skills for life</span><span class="es">Habilidades para la vida</span></span>
-        <h2><span class="en">Hands-on skills they'll carry forever.</span><span class="es">Habilidades prácticas que llevarán para siempre.</span></h2>
+        <span class="eyebrow"><span class="en">Skills for life</span><span class="es">Habilidades para la vida</span><span class="cr">Kapasite pou Lavi</span></span>
+        <h2><span class="en">Hands-on skills they'll carry forever.</span><span class="es">Habilidades prácticas que llevarán para siempre.</span><span class="cr">Kapasite pratik y ap kenbe pou tout vi.</span></h2>
         <p>
           <span class="en">Cooking. Flower arranging. Mindfulness. Conflict resolution. Self-expression. The kind of life skills that change how a child sees themselves — and the world.</span>
           <span class="es">Cocinar. Arreglos florales. Atención plena. Resolución de conflictos. Expresión personal. Habilidades que cambian la forma en que un niño se ve a sí mismo — y al mundo.</span>
+          <span class="cr">Kwit manje. Aranjman flè. Konsyans. Rezolisyon konfli. Espresyon pèsonèl. Kalite kapasite ki chanje jan yon timoun wè tèt li — ak mond lan.</span>
         </p>
       </div>
     </div>
@@ -513,8 +560,8 @@
 <section class="location-section" id="how">
   <div class="container">
     <div class="section-title reveal">
-      <span class="eyebrow"><span class="en">Winter Park location</span><span class="es">Ubicación en Winter Park</span></span>
-      <h2><span class="en">Right here in Winter Park.</span><span class="es">Aquí mismo en Winter Park.</span></h2>
+      <span class="eyebrow"><span class="en">Winter Park location</span><span class="es">Ubicación en Winter Park</span><span class="cr">Lokal Winter Park</span></span>
+      <h2><span class="en">Right here in Winter Park.</span><span class="es">Aquí mismo en Winter Park.</span><span class="cr">Isit la nan Winter Park.</span></h2>
     </div>
 
     <div class="location-card reveal">
@@ -524,40 +571,41 @@
           <p style="color:var(--ink-soft);margin-top:6px">
             <span class="en">Our Winter Park camp runs out of a beautiful, safe facility right in the heart of the community.</span>
             <span class="es">Nuestro campamento en Winter Park funciona en una hermosa y segura instalación en el corazón de la comunidad.</span>
+            <span class="cr">Kan Winter Park nou an fonksyone nan yon bèl enstalasyon san danje nan kè kominote a.</span>
           </p>
 
           <div class="location-meta">
             <div class="meta-row">
               <div class="ic">📍</div>
               <div>
-                <div class="label"><span class="en">Address</span><span class="es">Dirección</span></div>
+                <div class="label"><span class="en">Address</span><span class="es">Dirección</span><span class="cr">Adrès</span></div>
                 <div class="value">800 Symonds Ave, Winter Park, FL 32789</div>
               </div>
             </div>
             <div class="meta-row">
               <div class="ic">📅</div>
               <div>
-                <div class="label"><span class="en">Dates</span><span class="es">Fechas</span></div>
-                <div class="value"><span class="en">June 8 – August 7, 2026</span><span class="es">8 de Junio – 7 de Agosto, 2026</span></div>
+                <div class="label"><span class="en">Dates</span><span class="es">Fechas</span><span class="cr">Dat yo</span></div>
+                <div class="value"><span class="en">June 8 – August 7, 2026</span><span class="es">8 de Junio – 7 de Agosto, 2026</span><span class="cr">8 Jen – 7 Out, 2026</span></div>
               </div>
             </div>
             <div class="meta-row">
               <div class="ic">⏰</div>
               <div>
-                <div class="label"><span class="en">Hours</span><span class="es">Horarios</span></div>
-                <div class="value"><span class="en">Mon–Thu 8:30am – 4:00pm · Fri 8:30am – 12:30pm</span><span class="es">Lun–Jue 8:30am – 4:00pm · Vie 8:30am – 12:30pm</span></div>
+                <div class="label"><span class="en">Hours</span><span class="es">Horarios</span><span class="cr">Lè</span></div>
+                <div class="value"><span class="en">Mon–Thu 8:30am – 4:00pm · Fri 8:30am – 12:30pm</span><span class="es">Lun–Jue 8:30am – 4:00pm · Vie 8:30am – 12:30pm</span><span class="cr">Lendi–Jedi 8:30am – 4:00pm · Vandredi 8:30am – 12:30pm</span></div>
               </div>
             </div>
             <div class="meta-row">
               <div class="ic">👶</div>
               <div>
-                <div class="label"><span class="en">Ages</span><span class="es">Edades</span></div>
-                <div class="value"><span class="en">5 – 17 (grouped by age &amp; developmental stage)</span><span class="es">5 – 17 (agrupados por edad y desarrollo)</span></div>
+                <div class="label"><span class="en">Ages</span><span class="es">Edades</span><span class="cr">Laj</span></div>
+                <div class="value"><span class="en">5 – 17 (grouped by age &amp; developmental stage)</span><span class="es">5 – 17 (agrupados por edad y desarrollo)</span><span class="cr">5 – 17 (gwoupe pa laj ak etap devlopman)</span></div>
               </div>
             </div>
           </div>
 
-          <a href="#apply" class="btn btn-primary"><span class="en">Apply for Winter Park →</span><span class="es">Aplica para Winter Park →</span></a>
+          <a href="#apply" class="btn btn-primary"><span class="en">Apply for Winter Park →</span><span class="es">Aplica para Winter Park →</span><span class="cr">Aplike pou Winter Park →</span></a>
         </div>
         <div class="location-map">
           <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -566,88 +614,88 @@
         </div>
       </div>
       <div class="location-photo">
-        <span class="activity-pin"><span class="en">On-site · Beach Day</span><span class="es">En el lugar · Día de Playa</span></span>
-        <img src="assets/photos/beach-portrait.jpg" alt="" loading="lazy" />
+        <span class="activity-pin"><span class="en">Group Time · Outside</span><span class="es">Tiempo en Grupo · Afuera</span><span class="cr">Tan Gwoup · Deyò</span></span>
+        <img src="assets/photos/teacher-circle.jpg" alt="" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--cream-warm)">
+<section class="has-pattern">
   <div class="container">
     <div class="section-title reveal">
-      <span class="eyebrow"><span class="en">How it works</span><span class="es">Cómo funciona</span></span>
-      <h2><span class="en">From "interested" to "first day" — in 4 steps.</span><span class="es">De "interesado" a "primer día" — en 4 pasos.</span></h2>
+      <span class="eyebrow"><span class="en">How it works</span><span class="es">Cómo funciona</span><span class="cr">Kòman li mache</span></span>
+      <h2><span class="en">From "interested" to "first day" — in 4 steps.</span><span class="es">De "interesado" a "primer día" — en 4 pasos.</span><span class="cr">Soti nan "enterese" pou rive nan "premye jou" — nan 4 etap.</span></h2>
     </div>
 
     <div class="steps">
       <div class="step reveal">
-        <h3><span class="en">Apply online</span><span class="es">Aplica en línea</span></h3>
-        <p><span class="en">Fill the 2-minute form below with your phone, insurance, and your child's age.</span><span class="es">Llena el formulario de 2 minutos con tu teléfono, seguro, y la edad de tu hijo.</span></p>
+        <h3><span class="en">Apply online</span><span class="es">Aplica en línea</span><span class="cr">Aplike sou entènèt</span></h3>
+        <p><span class="en">Fill the 2-minute form below with your phone, insurance, and your child's age.</span><span class="es">Llena el formulario de 2 minutos con tu teléfono, seguro, y la edad de tu hijo.</span><span class="cr">Ranpli fòm 2 minit la ak telefòn ou, asirans, ak laj pitit ou.</span></p>
       </div>
       <div class="step reveal reveal-delay-1">
-        <h3><span class="en">We call you back</span><span class="es">Te llamamos</span></h3>
-        <p><span class="en">Robyn, our coordinator, calls you the same day to confirm your insurance covers it.</span><span class="es">Robyn, nuestra coordinadora, te llama el mismo día para confirmar que tu seguro lo cubre.</span></p>
+        <h3><span class="en">We call you back</span><span class="es">Te llamamos</span><span class="cr">Nou rele ou</span></h3>
+        <p><span class="en">Robyn, our coordinator, calls you the same day to confirm your insurance covers it.</span><span class="es">Robyn, nuestra coordinadora, te llama el mismo día para confirmar que tu seguro lo cubre.</span><span class="cr">Robyn, kowòdonatè nou an, rele ou menm jou a pou konfime asirans ou kouvri li.</span></p>
       </div>
       <div class="step reveal reveal-delay-2">
-        <h3><span class="en">Quick paperwork</span><span class="es">Papeleo rápido</span></h3>
-        <p><span class="en">Send a copy of the insurance card, your ID, and your child's report card. We handle the rest.</span><span class="es">Manda copia de la tarjeta del seguro, tu ID, y la libreta de calificaciones. Hacemos el resto.</span></p>
+        <h3><span class="en">Quick paperwork</span><span class="es">Papeleo rápido</span><span class="cr">Papye rapid</span></h3>
+        <p><span class="en">Send a copy of the insurance card, your ID, and your child's report card. We handle the rest.</span><span class="es">Manda copia de la tarjeta del seguro, tu ID, y la libreta de calificaciones. Hacemos el resto.</span><span class="cr">Voye yon kopi kat asirans, ID ou, ak kanè nòt pitit ou. Nou jere rès la.</span></p>
       </div>
       <div class="step reveal reveal-delay-3">
-        <h3><span class="en">First day: June 8</span><span class="es">Primer día: 8 de Junio</span></h3>
-        <p><span class="en">Drop off at 8:30am — your child is already part of the family.</span><span class="es">Entrega a las 8:30am — tu hijo ya es parte de la familia.</span></p>
+        <h3><span class="en">First day: June 8</span><span class="es">Primer día: 8 de Junio</span><span class="cr">Premye jou: 8 Jen</span></h3>
+        <p><span class="en">Drop off at 8:30am — your child is already part of the family.</span><span class="es">Entrega a las 8:30am — tu hijo ya es parte de la familia.</span><span class="cr">Antre 8:30 maten — pitit ou deja fè pati fanmi an.</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="faq-section">
+<section class="faq-section has-pattern">
   <div class="container-narrow">
     <div class="section-title reveal">
       <span class="eyebrow">FAQ</span>
-      <h2><span class="en">The questions parents ask us most.</span><span class="es">Las preguntas que más nos hacen.</span></h2>
+      <h2><span class="en">The questions parents ask us most.</span><span class="es">Las preguntas que más nos hacen.</span><span class="cr">Kesyon paran yo plis poze nou yo.</span></h2>
     </div>
 
     <div class="faq-list">
       <details class="faq reveal">
-        <summary><span class="en">Is it really 100% free?</span><span class="es">¿De verdad es 100% gratis?</span></summary>
-        <div class="answer"><span class="en">Yes — if your child is covered by Medicaid or by Sunshine, CMS, Community Care Plan, or Aetna, the program is fully covered. We verify your coverage before camp starts. There are no hidden fees.</span><span class="es">Sí — si tu hijo está cubierto por Medicaid o por Sunshine, CMS, Community Care Plan o Aetna, el programa es 100% cubierto. Verificamos tu cobertura antes del campamento. Sin costos ocultos.</span></div>
+        <summary><span class="en">Is it really 100% free?</span><span class="es">¿De verdad es 100% gratis?</span><span class="cr">Èske li vrèman 100% gratis?</span></summary>
+        <div class="answer"><span class="en">Yes — if your child is covered by Medicaid or by Sunshine, CMS, Community Care Plan, or Aetna, the program is fully covered. We verify your coverage before camp starts. There are no hidden fees.</span><span class="es">Sí — si tu hijo está cubierto por Medicaid o por Sunshine, CMS, Community Care Plan o Aetna, el programa es 100% cubierto. Verificamos tu cobertura antes del campamento. Sin costos ocultos.</span><span class="cr">Wi — si pitit ou kouvri pa Medicaid oswa pa Sunshine, CMS, Community Care Plan, oswa Aetna, pwogram nan antyèman kouvri. Nou verifye kouvèti ou anvan kan an kòmanse. Pa gen frè kache.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What insurances do you accept?</span><span class="es">¿Qué seguros aceptan?</span></summary>
-        <div class="answer"><span class="en">Florida Medicaid, Sunshine, CMS, Community Care Plan, and Aetna — for both Medicaid and private plans. If you're not sure if yours qualifies, apply and we'll check for you.</span><span class="es">Florida Medicaid, Sunshine, CMS, Community Care Plan y Aetna — tanto Medicaid como seguros privados. Si no estás seguro si el tuyo califica, aplica y lo revisamos por ti.</span></div>
+        <summary><span class="en">What insurances do you accept?</span><span class="es">¿Qué seguros aceptan?</span><span class="cr">Ki asirans ou aksepte?</span></summary>
+        <div class="answer"><span class="en">Florida Medicaid, Sunshine, CMS, Community Care Plan, and Aetna — for both Medicaid and private plans. If you're not sure if yours qualifies, apply and we'll check for you.</span><span class="es">Florida Medicaid, Sunshine, CMS, Community Care Plan y Aetna — tanto Medicaid como seguros privados. Si no estás seguro si el tuyo califica, aplica y lo revisamos por ti.</span><span class="cr">Florida Medicaid, Sunshine, CMS, Community Care Plan, ak Aetna — pou Medicaid ak plan prive. Si ou pa sèten si pa ou kalifye, aplike epi n ap tcheke pou ou.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What ages do you accept?</span><span class="es">¿Qué edades aceptan?</span></summary>
-        <div class="answer"><span class="en">Kids ages 5 to 17. We group children by age and developmental stage: 5–9, 10–12, 12–15, and 14–17.</span><span class="es">Niños de 5 a 17 años. Los agrupamos por edad y desarrollo: 5–9, 10–12, 12–15, y 14–17.</span></div>
+        <summary><span class="en">What ages do you accept?</span><span class="es">¿Qué edades aceptan?</span><span class="cr">Ki laj ou aksepte?</span></summary>
+        <div class="answer"><span class="en">Kids ages 5 to 17. We group children by age and developmental stage: 5–9, 10–12, 12–15, and 14–17.</span><span class="es">Niños de 5 a 17 años. Los agrupamos por edad y desarrollo: 5–9, 10–12, 12–15, y 14–17.</span><span class="cr">Timoun ki gen laj 5 a 17. Nou gwoupe yo pa laj ak etap devlopman: 5–9, 10–12, 12–15, ak 14–17.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What does a typical day look like?</span><span class="es">¿Cómo es un día típico?</span></summary>
-        <div class="answer"><span class="en">8:30am drop-off &amp; breakfast · mindfulness · weekly topic &amp; activity · journaling · home-cooked lunch · light academic practice · extracurricular (art, chess, karate, music) · free time · 4:00pm pickup. Fridays end at 12:30pm. Pool day every week + field trips.</span><span class="es">8:30am llegada y desayuno · mindfulness · tema y actividad de la semana · diario · almuerzo casero · práctica académica ligera · actividad extracurricular (arte, ajedrez, karate, música) · tiempo libre · 4:00pm salida. Los viernes terminan a las 12:30pm. Día de piscina cada semana + paseos.</span></div>
+        <summary><span class="en">What does a typical day look like?</span><span class="es">¿Cómo es un día típico?</span><span class="cr">Kòman yon jou tipik ye?</span></summary>
+        <div class="answer"><span class="en">8:30am drop-off &amp; breakfast · mindfulness · weekly topic &amp; activity · journaling · home-cooked lunch · light academic practice · extracurricular (art, chess, karate, music) · free time · 4:00pm pickup. Fridays end at 12:30pm. Pool day every week + field trips.</span><span class="es">8:30am llegada y desayuno · mindfulness · tema y actividad de la semana · diario · almuerzo casero · práctica académica ligera · actividad extracurricular (arte, ajedrez, karate, música) · tiempo libre · 4:00pm salida. Los viernes terminan a las 12:30pm. Día de piscina cada semana + paseos.</span><span class="cr">8:30 maten antre ak dejene · konsyans · sijè ak aktivite semèn nan · jounal · manje midi fèt nan kay · pratik akademik lejè · aktivite ekstra (atizay, echèk, karate, mizik) · tan lib · 4:00 pm sòti. Vandredi yo fini a 12:30 pm. Jou pisin chak semèn + vwayaj.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">Is transportation included?</span><span class="es">¿Incluyen transporte?</span></summary>
-        <div class="answer"><span class="en">Drop-off and pickup happen on-site. We arrange transportation only when no other option exists. We'll walk you through it on our call.</span><span class="es">La entrega y recogida son en el lugar. Coordinamos transporte solo cuando no hay otra opción. Te explicamos todo en nuestra llamada.</span></div>
+        <summary><span class="en">Is transportation included?</span><span class="es">¿Incluyen transporte?</span><span class="cr">Èske transpò enkli?</span></summary>
+        <div class="answer"><span class="en">Drop-off and pickup happen on-site. We arrange transportation only when no other option exists. We'll walk you through it on our call.</span><span class="es">La entrega y recogida son en el lugar. Coordinamos transporte solo cuando no hay otra opción. Te explicamos todo en nuestra llamada.</span><span class="cr">Antre ak sòti fèt sou plas. Nou òganize transpò sèlman lè pa gen lòt opsyon. N ap eksplike ou tout bagay nan rele nou an.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What does my child need to bring?</span><span class="es">¿Qué necesita traer mi hijo?</span></summary>
-        <div class="answer"><span class="en">Nothing on most days — we provide meals. On pool days and field trips we send specific instructions ahead of time at the mandatory parent orientation.</span><span class="es">Nada en la mayoría de días — incluimos las comidas. En días de piscina y paseos mandamos instrucciones antes en la orientación obligatoria de padres.</span></div>
+        <summary><span class="en">What does my child need to bring?</span><span class="es">¿Qué necesita traer mi hijo?</span><span class="cr">Ki sa pitit mwen bezwen pote?</span></summary>
+        <div class="answer"><span class="en">Nothing on most days — we provide meals. On pool days and field trips we send specific instructions ahead of time at the mandatory parent orientation.</span><span class="es">Nada en la mayoría de días — incluimos las comidas. En días de piscina y paseos mandamos instrucciones antes en la orientación obligatoria de padres.</span><span class="cr">Anyen nan pifò jou — nou bay manje. Pou jou pisin ak vwayaj nou voye enstriksyon espesifik anvan nan oryantasyon obligatwa pou paran.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">Is your staff really qualified?</span><span class="es">¿Su personal está realmente calificado?</span></summary>
-        <div class="answer"><span class="en">Yes — we're AHCA-certified by the State of Florida, and every staff member completes a Level-2 background screening (the most thorough background check in Florida). The ratio is 12 kids to 1 qualified adult plus an intern.</span><span class="es">Sí — somos certificados por AHCA del Estado de Florida, y cada miembro del personal pasa una verificación Nivel-2 (la más completa en Florida). La proporción es 12 niños por cada adulto calificado más un practicante.</span></div>
+        <summary><span class="en">Is your staff really qualified?</span><span class="es">¿Su personal está realmente calificado?</span><span class="cr">Èske anplwaye ou yo vrèman kalifye?</span></summary>
+        <div class="answer"><span class="en">Yes — we're AHCA-certified by the State of Florida, and every staff member completes a Level-2 background screening (the most thorough background check in Florida). The ratio is 12 kids to 1 qualified adult plus an intern.</span><span class="es">Sí — somos certificados por AHCA del Estado de Florida, y cada miembro del personal pasa una verificación Nivel-2 (la más completa en Florida). La proporción es 12 niños por cada adulto calificado más un practicante.</span><span class="cr">Wi — nou sètifye AHCA pa Eta Florid, epi chak anplwaye konplete yon verifikasyon Nivo-2 (verifikasyon ki pi konplè nan Florid). Pwopòsyon an se 12 timoun pou 1 adilt kalifye plis yon entèn.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What if my child has allergies or needs medication?</span><span class="es">¿Y si mi hijo tiene alergias o necesita medicamento?</span></summary>
-        <div class="answer"><span class="en">We collect this in your enrollment form and keep it with our team and in eating areas. We don't administer routine medication — only in urgent situations and always with parental consent.</span><span class="es">Lo recogemos en tu formulario de inscripción y lo mantenemos con el equipo y en áreas de comida. No damos medicamento de rutina — solo en situaciones urgentes y siempre con tu consentimiento.</span></div>
+        <summary><span class="en">What if my child has allergies or needs medication?</span><span class="es">¿Y si mi hijo tiene alergias o necesita medicamento?</span><span class="cr">E si pitit mwen gen alèji oswa bezwen medikaman?</span></summary>
+        <div class="answer"><span class="en">We collect this in your enrollment form and keep it with our team and in eating areas. We don't administer routine medication — only in urgent situations and always with parental consent.</span><span class="es">Lo recogemos en tu formulario de inscripción y lo mantenemos con el equipo y en áreas de comida. No damos medicamento de rutina — solo en situaciones urgentes y siempre con tu consentimiento.</span><span class="cr">Nou kolekte sa nan fòm enskripsyon ou epi kenbe l ak ekip nou ak nan zòn manje. Nou pa bay medikaman regilye — sèlman nan sitiyasyon ijan epi toujou ak konsantman paran.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">What if my child doesn't have Medicaid or one of the listed insurances?</span><span class="es">¿Y si mi hijo no tiene Medicaid o uno de los seguros listados?</span></summary>
-        <div class="answer"><span class="en">Apply anyway — we'll talk you through the options. We're working on private-pay rates for Winter Park families who don't have qualifying coverage.</span><span class="es">Aplica de todos modos — te explicamos tus opciones. Estamos trabajando en precios privados para familias en Winter Park sin cobertura que califique.</span></div>
+        <summary><span class="en">What if my child doesn't have Medicaid or one of the listed insurances?</span><span class="es">¿Y si mi hijo no tiene Medicaid o uno de los seguros listados?</span><span class="cr">E si pitit mwen pa gen Medicaid oswa youn nan asirans yo nonmen?</span></summary>
+        <div class="answer"><span class="en">Apply anyway — we'll talk you through the options. We're working on private-pay rates for Winter Park families who don't have qualifying coverage.</span><span class="es">Aplica de todos modos — te explicamos tus opciones. Estamos trabajando en precios privados para familias en Winter Park sin cobertura que califique.</span><span class="cr">Aplike kanmèm — n ap eksplike ou opsyon yo. N ap travay sou pri prive pou fanmi Winter Park ki pa gen kouvèti ki kalifye.</span></div>
       </details>
       <details class="faq reveal">
-        <summary><span class="en">Can I withdraw my child if it isn't a fit?</span><span class="es">¿Puedo retirar a mi hijo si no le gusta?</span></summary>
-        <div class="answer"><span class="en">Absolutely. Parents are free to withdraw at any time. No commitment.</span><span class="es">Por supuesto. Los padres pueden retirar a su hijo en cualquier momento. Sin compromiso.</span></div>
+        <summary><span class="en">Can I withdraw my child if it isn't a fit?</span><span class="es">¿Puedo retirar a mi hijo si no le gusta?</span><span class="cr">Èske mwen ka retire pitit mwen si li pa bon?</span></summary>
+        <div class="answer"><span class="en">Absolutely. Parents are free to withdraw at any time. No commitment.</span><span class="es">Por supuesto. Los padres pueden retirar a su hijo en cualquier momento. Sin compromiso.</span><span class="cr">Absoliman. Paran yo ka retire pitit yo nenpòt lè. Pa gen okenn angajman.</span></div>
       </details>
     </div>
   </div>
@@ -656,66 +704,67 @@
 <section id="apply" class="form-section">
   <div class="container-narrow">
     <div class="section-title reveal">
-      <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span></span>
-      <h2><span class="en">Reserve your child's free spot.</span><span class="es">Reserva el cupo gratis de tu hijo.</span></h2>
-      <p class="lead-sub"><span class="en">Takes 2 minutes. Robyn calls you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Robyn te llama el mismo día para confirmar tu seguro e inscribir a tu hijo.</span></p>
+      <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span></span>
+      <h2><span class="en">Reserve your child's free spot.</span><span class="es">Reserva el cupo gratis de tu hijo.</span><span class="cr">Rezève plas gratis pitit ou.</span></h2>
+      <p class="lead-sub"><span class="en">Takes 2 minutes. Robyn calls you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Robyn te llama el mismo día para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Pran 2 minit. Robyn rele ou menm jou a pou konfime asirans ou epi enskri pitit ou.</span></p>
     </div>
 
     <form class="lead-form reveal" id="leadForm" novalidate>
       <div class="row">
         <div class="field">
-          <label><span class="en">Parent / Guardian Name</span><span class="es">Nombre del Padre / Tutor</span></label>
+          <label><span class="en">Parent / Guardian Name</span><span class="es">Nombre del Padre / Tutor</span><span class="cr">Non Paran / Gadyen</span></label>
           <input type="text" name="parent_name" required autocomplete="name" />
         </div>
         <div class="field">
-          <label><span class="en">Phone Number</span><span class="es">Teléfono</span></label>
+          <label><span class="en">Phone Number</span><span class="es">Teléfono</span><span class="cr">Nimewo Telefòn</span></label>
           <input type="tel" name="phone" required autocomplete="tel" placeholder="(407) 555-0123" />
         </div>
       </div>
       <div class="row">
         <div class="field">
-          <label><span class="en">Child's Age</span><span class="es">Edad del Niño</span></label>
+          <label><span class="en">Child's Age</span><span class="es">Edad del Niño</span><span class="cr">Laj Pitit la</span></label>
           <select name="child_age" required>
-            <option value="" data-en="Select age" data-es="Seleccionar edad">Select age</option>
+            <option value="" data-en="Select age" data-es="Seleccionar edad" data-cr="Chwazi laj">Select age</option>
             <option>5</option><option>6</option><option>7</option><option>8</option>
             <option>9</option><option>10</option><option>11</option><option>12</option>
             <option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
           </select>
         </div>
         <div class="field">
-          <label><span class="en">How many children?</span><span class="es">¿Cuántos niños?</span></label>
+          <label><span class="en">How many children?</span><span class="es">¿Cuántos niños?</span><span class="cr">Konbyen timoun?</span></label>
           <select name="num_children" required>
-            <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+            <option value="" data-en="Select" data-es="Seleccionar" data-cr="Chwazi">Select</option>
             <option>1</option><option>2</option><option>3</option><option>4+</option>
           </select>
         </div>
       </div>
       <div class="field">
-        <label><span class="en">Insurance Plan</span><span class="es">Plan de Seguro</span></label>
+        <label><span class="en">Insurance Plan</span><span class="es">Plan de Seguro</span><span class="cr">Plan Asirans</span></label>
         <select name="insurance" required>
-          <option value="" data-en="Select your insurance" data-es="Selecciona tu seguro">Select your insurance</option>
+          <option value="" data-en="Select your insurance" data-es="Selecciona tu seguro" data-cr="Chwazi asirans ou">Select your insurance</option>
           <option>Florida Medicaid</option>
           <option>Sunshine</option>
           <option>CMS</option>
           <option>Community Care Plan</option>
           <option>Aetna</option>
-          <option data-en="Other / Not sure" data-es="Otro / No estoy seguro">Other / Not sure</option>
-          <option data-en="No insurance" data-es="Sin seguro">No insurance</option>
+          <option data-en="Other / Not sure" data-es="Otro / No estoy seguro" data-cr="Lòt / Pa sèten">Other / Not sure</option>
+          <option data-en="No insurance" data-es="Sin seguro" data-cr="Pa gen asirans">No insurance</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary btn-lg submit">
-        <span class="en">Reserve My Child's Spot →</span><span class="es">Reservar el Cupo →</span>
+        <span class="en">Reserve My Child's Spot →</span><span class="es">Reservar el Cupo →</span><span class="cr">Rezève Plas Pitit Mwen →</span>
       </button>
       <p class="disclaimer">
         <span class="en">By submitting, you agree to be contacted by phone and SMS by Heal Grow Thrive about your application. Your information stays private and is never shared.</span>
         <span class="es">Al enviar, aceptas ser contactado por teléfono y SMS por Heal Grow Thrive sobre tu solicitud. Tu información es privada y no se comparte.</span>
+        <span class="cr">Lè ou voye, ou dakò pou Heal Grow Thrive kontakte ou pa telefòn ak SMS sou aplikasyon ou. Enfòmasyon ou rete prive epi pa janm pataje.</span>
       </p>
     </form>
 
     <div class="form-success" id="formSuccess" style="display:none">
       <div class="check">✓</div>
-      <h3><span class="en">You're in! 🎉</span><span class="es">¡Listo! 🎉</span></h3>
-      <p><span class="en">Robyn will call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Robyn te llamará en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span></p>
+      <h3><span class="en">You're in! 🎉</span><span class="es">¡Listo! 🎉</span><span class="cr">Ou anndan! 🎉</span></h3>
+      <p><span class="en">Robyn will call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Robyn te llamará en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Robyn ap rele ou nan 24 èdtan (anjeneral menm jou a) pou konfime asirans ou epi enskri pitit ou.</span></p>
     </div>
   </div>
 </section>
@@ -724,7 +773,7 @@
   <div class="container">
     <div class="grid">
       <div class="partners">
-        <span class="label"><span class="en">Presented by</span><span class="es">Presentado por</span></span>
+        <span class="label"><span class="en">Presented by</span><span class="es">Presentado por</span><span class="cr">Prezante pa</span></span>
         <span class="pair">
           <img src="assets/logos/hgt-clean.png" alt="Heal Grow Thrive" />
           <img src="assets/logos/thrive-blossom-clean.png" alt="Thrive &amp; Blossom" />
@@ -732,39 +781,41 @@
         <p style="font-size:13px;color:rgba(248,244,237,.65);margin:0;line-height:1.55">
           <span class="en">Heal Grow Thrive &amp; Thrive &amp; Blossom — partners committed to safe, fun, life-changing summers for Florida kids.</span>
           <span class="es">Heal Grow Thrive y Thrive &amp; Blossom — socios comprometidos con veranos seguros, divertidos y transformadores para los niños de Florida.</span>
+          <span class="cr">Heal Grow Thrive ak Thrive &amp; Blossom — patnè ki angaje pou veran sekirite, plezi, ak ki chanje lavi pou timoun Florid.</span>
         </p>
       </div>
       <div>
-        <h4><span class="en">Camp</span><span class="es">Campamento</span></h4>
+        <h4><span class="en">Camp</span><span class="es">Campamento</span><span class="cr">Kan</span></h4>
         <p style="font-size:13px;line-height:1.7;margin:0">
           800 Symonds Ave<br/>Winter Park, FL 32789<br/>
-          <span class="en">June 8 – August 7, 2026</span><span class="es">8 de Junio – 7 de Agosto, 2026</span>
+          <span class="en">June 8 – August 7, 2026</span><span class="es">8 de Junio – 7 de Agosto, 2026</span><span class="cr">8 Jen – 7 Out, 2026</span>
         </p>
       </div>
       <div>
-        <h4><span class="en">Compliance</span><span class="es">Cumplimiento</span></h4>
+        <h4><span class="en">Compliance</span><span class="es">Cumplimiento</span><span class="cr">Konfòmite</span></h4>
         <p class="legal" style="margin:0">
           <span class="en">AHCA-certified provider. Program offered through covered insurance benefits including Florida Medicaid, Sunshine, CMS, Community Care Plan, and Aetna.</span>
           <span class="es">Proveedor certificado AHCA. Programa ofrecido a través de los beneficios cubiertos por Florida Medicaid, Sunshine, CMS, Community Care Plan, y Aetna.</span>
+          <span class="cr">Founisè sètifye AHCA. Pwogram ofri atravè benefis asirans ki kouvri ki gen ladan Florida Medicaid, Sunshine, CMS, Community Care Plan, ak Aetna.</span>
         </p>
       </div>
     </div>
     <div class="copy">
       <span>© 2026 Heal Grow Thrive · Winter Park, FL</span>
-      <span><span class="en">Built with love for Florida families</span><span class="es">Hecho con amor para las familias de Florida</span></span>
+      <span><span class="en">Built with love for Florida families</span><span class="es">Hecho con amor para las familias de Florida</span><span class="cr">Fèt ak lanmou pou fanmi Florid</span></span>
     </div>
   </div>
 </footer>
 
 <a href="#apply" class="sticky-cta">
-  <span class="en">Apply Today — Free Spot →</span><span class="es">Aplica Hoy — Cupo Gratis →</span>
+  <span class="en">Apply Today — Free Spot →</span><span class="es">Aplica Hoy — Cupo Gratis →</span><span class="cr">Aplike Jodi a — Plas Gratis →</span>
 </a>
 
 <script>
-  // ── Language toggle ──
+  // ── Language toggle (EN / ES / CR) ──
   const setLang = (l) => {
     document.documentElement.setAttribute('data-lang', l);
-    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('lang', l === 'cr' ? 'ht' : l);
     document.querySelectorAll('[data-set-lang]').forEach(b => b.classList.toggle('active', b.dataset.setLang === l));
     document.querySelectorAll('option[data-en]').forEach(o => { o.textContent = o.dataset[l] || o.dataset.en; });
     try { localStorage.setItem('hgt_lang', l); } catch(e){}
@@ -772,9 +823,13 @@
   document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
   try {
     const stored = localStorage.getItem('hgt_lang');
-    if (stored === 'es' || stored === 'en') setLang(stored);
-    else if (navigator.language && navigator.language.toLowerCase().startsWith('es')) setLang('es');
-    else setLang('en');
+    if (stored === 'es' || stored === 'en' || stored === 'cr') setLang(stored);
+    else if (navigator.language) {
+      const nl = navigator.language.toLowerCase();
+      if (nl.startsWith('ht')) setLang('cr');
+      else if (nl.startsWith('es')) setLang('es');
+      else setLang('en');
+    } else setLang('en');
   } catch(e){ setLang('en'); }
 
   // ── Hero scroll-expand (vanilla JS port of HeroScrollExpand.tsx + ScrollExpandMedia.tsx) ──
@@ -855,7 +910,6 @@
   window.addEventListener('touchend', onTouchEnd);
   window.addEventListener('scroll', onScroll);
 
-  // Click/tap/key fallback to skip the scroll-trap
   function expandFully() { scrollProgress = 1; updateHero(); expand(); }
   scrollHint.addEventListener('click', expandFully);
   scrollHint.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); expandFully(); } });
@@ -873,7 +927,6 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // ── Lead form ──
-  // Wire to a real endpoint here (Formspree, Virtual Scale webhook, GoHighLevel, Zapier):
   const FORM_ENDPOINT = ''; // <-- TODO: paste real endpoint here
 
   const form = document.getElementById('leadForm');

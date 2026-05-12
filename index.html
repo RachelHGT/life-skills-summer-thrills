@@ -171,6 +171,19 @@
       radial-gradient(circle at 1px 1px, rgba(42,128,116,.08) 1px, transparent 0);
     background-size:22px 22px;
   }
+
+  /* Photo backdrop for sections (e.g. how it works) */
+  .photo-backdrop{position:relative;overflow:hidden;background-color:var(--cream-warm)}
+  .photo-backdrop::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:url('assets/photos/hero-bg.jpg') center/cover;
+    opacity:.18;
+  }
+  .photo-backdrop::after{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:linear-gradient(180deg, rgba(248,244,237,.7) 0%, rgba(248,244,237,.95) 100%);
+  }
+  .photo-backdrop > *{position:relative;z-index:1}
   .has-pattern-light{
     background-color:var(--cream);
     background-image:
@@ -215,7 +228,7 @@
   .location-map iframe{width:100%;height:240px;border:0;border-radius:16px;display:block;border:1px solid var(--line)}
 
   /* Steps */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step;margin-top:24px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;margin-top:24px;max-width:980px;margin-left:auto;margin-right:auto}
   .step{position:relative;padding:36px 26px 30px;background:#fff;border-radius:18px;border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease}
   .step:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
   .step::before{counter-increment:step;content:counter(step);position:absolute;top:-20px;left:26px;width:42px;height:42px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Fraunces',serif;font-size:1.2rem;box-shadow:var(--shadow-sm)}
@@ -650,7 +663,7 @@
   </div>
 </section>
 
-<section class="has-pattern">
+<section class="photo-backdrop">
   <div class="container">
     <div class="section-title reveal">
       <span class="eyebrow"><span class="en">How it works</span><span class="es">Cómo funciona</span><span class="cr">Kòman li mache</span></span>
@@ -762,16 +775,20 @@
       </div>
       <div class="field">
         <label><span class="en">Insurance Plan</span><span class="es">Plan de Seguro</span><span class="cr">Plan Asirans</span></label>
-        <select name="insurance" required>
+        <select name="insurance" id="insuranceSelect" required>
           <option value="" data-en="Select your insurance" data-es="Selecciona tu seguro" data-cr="Chwazi asirans ou">Select your insurance</option>
-          <option>Florida Medicaid</option>
-          <option>Sunshine</option>
-          <option>CMS</option>
-          <option>Community Care Plan</option>
-          <option>Aetna</option>
-          <option data-en="Other / Not sure" data-es="Otro / No estoy seguro" data-cr="Lòt / Pa sèten">Other / Not sure</option>
-          <option data-en="No insurance" data-es="Sin seguro" data-cr="Pa gen asirans">No insurance</option>
+          <option value="Florida Medicaid">Florida Medicaid</option>
+          <option value="Sunshine">Sunshine</option>
+          <option value="CMS">CMS</option>
+          <option value="Community Care Plan">Community Care Plan</option>
+          <option value="Aetna">Aetna</option>
+          <option value="other" data-en="Other / Not sure" data-es="Otro / No estoy seguro" data-cr="Lòt / Pa sèten">Other / Not sure</option>
+          <option value="none" data-en="No insurance" data-es="Sin seguro" data-cr="Pa gen asirans">No insurance</option>
         </select>
+      </div>
+      <div class="field" id="insuranceOtherWrap" style="display:none">
+        <label><span class="en">Which insurance do you have? (Optional)</span><span class="es">¿Qué seguro tienes? (Opcional)</span><span class="cr">Ki asirans ou genyen? (Opsyonèl)</span></label>
+        <input type="text" name="insurance_other" autocomplete="off" placeholder="" />
       </div>
       <button type="submit" class="btn btn-primary btn-lg submit">
         <span class="en">Reserve My Free Spot →</span><span class="es">Reservar el Cupo Gratis →</span><span class="cr">Rezève Plas Gratis Mwen →</span>
@@ -950,6 +967,14 @@
 
   // ── Lead form ──
   const FORM_ENDPOINT = ''; // <-- TODO: paste real endpoint here
+
+  // Show "which insurance" text field when user picks Other/None
+  const insSel = document.getElementById('insuranceSelect');
+  const insOther = document.getElementById('insuranceOtherWrap');
+  insSel.addEventListener('change', () => {
+    const v = insSel.value;
+    insOther.style.display = (v === 'other' || v === 'none') ? 'block' : 'none';
+  });
 
   const form = document.getElementById('leadForm');
   const success = document.getElementById('formSuccess');

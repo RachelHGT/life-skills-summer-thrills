@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Life Skills, Summer Thrills · A Free Summer Camp in Winter Park, FL</title>
+<meta name="description" content="A free 9-week summer camp in Winter Park, FL for kids 5–17. Pool days, field trips, in-house chef meals, art, chess, karate. Fully covered by Florida Medicaid (Sunshine, CMS, Community Care, Aetna). Apply today." />
+<meta property="og:title" content="A Free Summer Your Kids Will Never Forget" />
+<meta property="og:description" content="9 weeks of pool days, field trips, in-house chef meals, art & sports — at no cost to families on Medicaid in Winter Park, FL." />
+<meta property="og:image" content="assets/photos/hero.jpg" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="assets/logos/hgt-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#2A8074;
+    --teal-dark:#1F635A;
+    --teal-soft:#E8F1EF;
+    --coral:#E85A4F;
+    --coral-dark:#C9483E;
+    --cream:#F8F4ED;
+    --cream-warm:#F2EBDD;
+    --ink:#1F2937;
+    --ink-soft:#4B5563;
+    --ink-light:#6B7280;
+    --line:rgba(31,41,55,.10);
+    --shadow-sm:0 2px 8px rgba(31,99,90,.08);
+    --shadow-md:0 8px 24px rgba(31,99,90,.12);
+    --shadow-lg:0 20px 60px rgba(31,99,90,.18);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--cream);color:var(--ink);
+    line-height:1.55;font-size:17px;font-weight:400;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+  .container-narrow{max-width:880px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0}
+  h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:600}
+  h2{font-size:clamp(1.9rem,4vw,3.1rem)}
+  h3{font-size:clamp(1.3rem,2.4vw,1.65rem)}
+  p{margin:0 0 1em}
+  .eyebrow{font-family:'Inter',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:inline-block}
+
+  /* ── Nav ── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(248,244,237,.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{width:36px;height:40px;object-fit:contain}
+  .brand .name{display:flex;flex-direction:column;line-height:1.05}
+  .brand .name .t1{font-family:'Fraunces',serif;font-weight:600;font-size:14px;color:var(--ink)}
+  .brand .name .t2{font-size:9px;font-weight:500;color:var(--ink-light);letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .lang-toggle{display:inline-flex;background:rgba(31,41,55,.06);border-radius:999px;padding:3px}
+  .lang-toggle button{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--ink-soft);transition:all .2s}
+  .lang-toggle button.active{background:var(--ink);color:var(--cream)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;
+    transition:transform .15s ease,box-shadow .2s ease,background .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:var(--coral-dark);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:rgba(31,41,55,.04)}
+  .btn-lg{padding:18px 32px;font-size:17px}
+  .nav-cta{padding:10px 18px;font-size:14px}
+
+  /* ── Hero ── */
+  .hero{
+    position:relative;padding:128px 0 72px;overflow:hidden;
+    background:
+      radial-gradient(1200px 600px at 80% -20%, rgba(42,128,116,.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(232,90,79,.08), transparent 60%),
+      var(--cream);
+  }
+  .hero .grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;
+  }
+  .hero .free-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--teal-soft);color:var(--teal-dark);
+    padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;
+    border:1px solid rgba(42,128,116,.18);margin-bottom:20px;
+  }
+  .hero .free-badge::before{content:"●";color:var(--teal);font-size:9px}
+  .hero h1 em{font-style:italic;color:var(--teal);font-weight:600}
+  .hero .sub{font-size:1.18rem;color:var(--ink-soft);margin:24px 0 28px;max-width:540px;line-height:1.6}
+  .hero .insurances{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:14px 18px;margin-bottom:28px;display:flex;flex-direction:column;gap:6px;max-width:520px;
+    box-shadow:var(--shadow-sm);
+  }
+  .hero .insurances .label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark)}
+  .hero .insurances .plans{font-size:14px;color:var(--ink);font-weight:500}
+  .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+  .hero .ctas .micro{font-size:13px;color:var(--ink-light)}
+  .hero .trust{
+    display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:8px;
+    font-size:13px;color:var(--ink-soft);font-weight:500;
+  }
+  .hero .trust span{display:inline-flex;align-items:center;gap:6px}
+  .hero .trust span::before{content:"✓";color:var(--teal);font-weight:700}
+  .hero-image{
+    position:relative;border-radius:24px;overflow:hidden;
+    aspect-ratio:4/5;box-shadow:var(--shadow-lg);
+  }
+  .hero-image img{width:100%;height:100%;object-fit:cover}
+  .hero-image .float-card{
+    position:absolute;bottom:18px;left:18px;right:18px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+    padding:14px 16px;border-radius:14px;
+    display:flex;align-items:center;gap:12px;
+    box-shadow:var(--shadow-md);
+  }
+  .hero-image .float-card .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(42,128,116,.16)}
+  .hero-image .float-card .txt{font-size:13px;font-weight:600;color:var(--ink)}
+  .hero-image .float-card .sub{font-size:11px;color:var(--ink-light);margin-top:1px}
+
+  /* ── Sections ── */
+  section{padding:88px 0}
+  .section-title{text-align:center;max-width:680px;margin:0 auto 56px}
+  .section-title h2{margin-bottom:14px}
+  .section-title p{color:var(--ink-soft);font-size:1.1rem}
+
+  /* Why kids love it */
+  .activities{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .act-card{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:28px 24px;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .act-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .act-card .icon{
+    width:48px;height:48px;border-radius:12px;background:var(--teal-soft);
+    display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;
+  }
+  .act-card h3{font-size:1.2rem;margin-bottom:8px}
+  .act-card p{color:var(--ink-soft);font-size:.95rem;margin:0}
+
+  /* Photo mosaic */
+  .mosaic-section{background:var(--cream-warm);padding:88px 0}
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px}
+  .mosaic .tile{overflow:hidden;border-radius:16px;box-shadow:var(--shadow-sm)}
+  .mosaic .tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .mosaic .tile:hover img{transform:scale(1.06)}
+  .mosaic .tile.tall{grid-row:span 2}
+  .mosaic .tile.wide{grid-column:span 2}
+
+  /* Trust band */
+  .trust-section{background:var(--ink);color:var(--cream);padding:72px 0}
+  .trust-section h2{color:#fff}
+  .trust-section .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px}
+  .trust-stat{text-align:center}
+  .trust-stat .num{font-family:'Fraunces',serif;font-size:3rem;font-weight:600;color:#fff;line-height:1;margin-bottom:8px}
+  .trust-stat .label{font-size:.9rem;color:rgba(248,244,237,.7);letter-spacing:.04em}
+
+  /* Location */
+  .location-card{
+    background:#fff;border:1px solid var(--line);border-radius:24px;
+    padding:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;
+    box-shadow:var(--shadow-md);
+  }
+  .location-card .info h2{margin-bottom:20px}
+  .location-card .meta{display:flex;flex-direction:column;gap:14px;margin:24px 0}
+  .location-card .meta-row{display:flex;gap:14px;align-items:flex-start}
+  .location-card .meta-row .ic{
+    width:36px;height:36px;border-radius:10px;background:var(--teal-soft);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    color:var(--teal-dark);font-weight:700;font-size:14px;
+  }
+  .location-card .meta-row .label{font-size:11px;font-weight:600;color:var(--ink-light);letter-spacing:.1em;text-transform:uppercase}
+  .location-card .meta-row .value{font-size:.95rem;color:var(--ink);font-weight:500;margin-top:2px}
+  .location-card .map{
+    border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:var(--cream-warm);
+    border:1px solid var(--line);
+  }
+  .location-card .map iframe{width:100%;height:100%;border:0;display:block}
+
+  /* How it works */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+  .step{position:relative;padding:32px 24px;background:#fff;border-radius:16px;border:1px solid var(--line)}
+  .step::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;top:-18px;left:24px;
+    width:36px;height:36px;border-radius:50%;background:var(--coral);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;
+    font-family:'Fraunces',serif;font-size:1.1rem;box-shadow:var(--shadow-sm);
+  }
+  .step h3{font-size:1.05rem;margin:8px 0 6px}
+  .step p{color:var(--ink-soft);font-size:.9rem;margin:0}
+
+  /* FAQ */
+  .faq-section{background:var(--cream-warm)}
+  .faq-list{max-width:760px;margin:0 auto}
+  .faq{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    margin-bottom:12px;overflow:hidden;
+  }
+  .faq summary{
+    list-style:none;cursor:pointer;padding:20px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-weight:600;font-size:1.02rem;color:var(--ink);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+";font-size:1.5rem;color:var(--teal);font-weight:400;
+    transition:transform .2s ease;
+  }
+  .faq[open] summary::after{transform:rotate(45deg)}
+  .faq .answer{padding:0 24px 22px;color:var(--ink-soft);line-height:1.65}
+
+  /* Form */
+  .form-section{
+    background:linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color:#fff;padding:88px 0;
+  }
+  .form-section h2{color:#fff;margin-bottom:14px}
+  .form-section .lead-sub{color:rgba(255,255,255,.85);font-size:1.1rem;text-align:center;margin:0 auto 40px;max-width:560px}
+  .lead-form{
+    background:#fff;border-radius:24px;padding:40px;color:var(--ink);
+    max-width:620px;margin:0 auto;box-shadow:var(--shadow-lg);
+  }
+  .lead-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{margin-bottom:14px;text-align:left}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+  .field input,.field select{
+    width:100%;padding:13px 14px;border-radius:10px;
+    border:1.5px solid var(--line);font-family:inherit;font-size:15px;
+    background:#fff;color:var(--ink);transition:border-color .15s;
+  }
+  .field input:focus,.field select:focus{outline:none;border-color:var(--teal)}
+  .lead-form .submit{width:100%;margin-top:8px}
+  .lead-form .disclaimer{font-size:12px;color:var(--ink-light);text-align:center;margin:12px 0 0}
+  .form-success{
+    text-align:center;padding:32px 24px;color:var(--ink);
+  }
+  .form-success .check{
+    width:64px;height:64px;border-radius:50%;background:var(--teal-soft);
+    color:var(--teal-dark);display:flex;align-items:center;justify-content:center;
+    font-size:32px;margin:0 auto 18px;
+  }
+  .form-success h3{margin-bottom:10px}
+  .form-success p{color:var(--ink-soft);margin:0}
+
+  /* Footer */
+  footer{background:var(--ink);color:rgba(248,244,237,.7);padding:48px 0 32px;font-size:14px}
+  footer .grid{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+  footer .brand{color:#fff}
+  footer .brand .t1{color:#fff}
+  footer .brand .t2{color:rgba(248,244,237,.5)}
+  footer .legal{font-size:12px;color:rgba(248,244,237,.45);max-width:360px;line-height:1.6}
+  footer .partner{display:flex;align-items:center;gap:10px;font-size:12px}
+  footer .partner img{height:36px;width:auto;opacity:.85}
+  footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(248,244,237,.1);font-size:12px;color:rgba(248,244,237,.5)}
+
+  /* Sticky bottom CTA (mobile) */
+  .sticky-cta{
+    position:fixed;left:14px;right:14px;bottom:14px;z-index:40;
+    background:var(--coral);color:#fff;padding:14px 20px;border-radius:999px;
+    box-shadow:0 8px 24px rgba(232,90,79,.4);font-weight:600;font-size:15px;
+    text-align:center;display:none;
+  }
+
+  /* Responsive */
+  @media (max-width:920px){
+    .hero{padding:108px 0 56px}
+    .hero .grid{grid-template-columns:1fr;gap:40px}
+    .hero-image{aspect-ratio:5/4;max-width:540px;margin:0 auto}
+    .activities{grid-template-columns:1fr 1fr}
+    .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+    .trust-section .grid{grid-template-columns:1fr 1fr;gap:24px}
+    .location-card{grid-template-columns:1fr;padding:32px}
+    .steps{grid-template-columns:1fr 1fr}
+    section{padding:64px 0}
+    .nav-cta{display:none}
+    .sticky-cta{display:block}
+    body{padding-bottom:80px}
+  }
+  @media (max-width:540px){
+    .container{padding:0 18px}
+    .activities{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .lead-form{padding:28px 22px}
+    .lead-form .row{grid-template-columns:1fr}
+    footer .grid{flex-direction:column}
+  }
+
+  /* Lang visibility */
+  [data-lang="en"] .es{display:none}
+  [data-lang="es"] .en{display:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container row">
+    <a href="#top" class="brand">
+      <img src="assets/logos/hgt-logo.png" alt="" />
+      <span class="name">
+        <span class="t1">Life Skills, Summer Thrills</span>
+        <span class="t2"><span class="en">Powered by Heal Grow Thrive</span><span class="es">Por Heal Grow Thrive</span></span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="en" class="active">EN</button>
+        <button data-set-lang="es">ES</button>
+      </div>
+      <a href="#apply" class="btn btn-primary nav-cta">
+        <span class="en">Apply Today</span><span class="es">Aplica Hoy</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <span class="free-badge">
+          <span class="en">100% Free with Medicaid &amp; Major Insurance</span>
+          <span class="es">100% Gratis con Medicaid y Seguros Mayores</span>
+        </span>
+        <h1>
+          <span class="en">A free summer your kids will <em>actually</em> remember.</span>
+          <span class="es">Un verano gratis que tus hijos <em>de verdad</em> van a recordar.</span>
+        </h1>
+        <p class="sub">
+          <span class="en">9 weeks of pool days, field trips, in-house chef meals, art, chess, and karate — in a safe, caring space in Winter Park, FL. For kids ages 5–17.</span>
+          <span class="es">9 semanas de piscina, paseos, comidas hechas en casa por nuestro chef, arte, ajedrez y karate — en un lugar seguro y acogedor en Winter Park, FL. Para niños de 5 a 17 años.</span>
+        </p>
+
+        <div class="insurances">
+          <div class="label">
+            <span class="en">No cost to families on:</span>
+            <span class="es">Sin costo para familias con:</span>
+          </div>
+          <div class="plans">Sunshine · CMS · Community Care Plan · Aetna · Florida Medicaid</div>
+        </div>
+
+        <div class="ctas">
+          <a href="#apply" class="btn btn-primary btn-lg">
+            <span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span>
+          </a>
+          <span class="micro">
+            <span class="en">Takes 2 minutes · We call you back same day</span>
+            <span class="es">2 minutos · Te llamamos el mismo día</span>
+          </span>
+        </div>
+
+        <div class="trust">
+          <span><span class="en">AHCA Certified</span><span class="es">Certificado AHCA</span></span>
+          <span><span class="en">Level-2 Background Screened Staff</span><span class="es">Personal con Verificación Nivel-2</span></span>
+          <span><span class="en">12:1 Care Ratio</span><span class="es">Proporción 12:1</span></span>
+          <span><span class="en">Bilingual EN · ES · Creole</span><span class="es">Bilingüe EN · ES · Creole</span></span>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="assets/photos/hero.jpg" alt="Kids enjoying summer camp at Heal Grow Thrive" />
+        <div class="float-card">
+          <div class="dot"></div>
+          <div>
+            <div class="txt">
+              <span class="en">June 8 – August 7, 2026</span>
+              <span class="es">8 de Junio – 7 de Agosto, 2026</span>
+            </div>
+            <div class="sub">
+              <span class="en">Winter Park, FL · Spots filling up</span>
+              <span class="es">Winter Park, FL · Cupos limitados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow"><span class="en">A summer they'll talk about all year</span><span class="es">Un verano del que hablarán todo el año</span></span>
+      <h2><span class="en">Real fun. Real friendships. Real food.</span><span class="es">Diversión real. Amigos reales. Comida real.</span></h2>
+      <p><span class="en">This isn't another babysitting program. Every day is built to help your child grow — while having a blast.</span><span class="es">Esto no es otro programa de cuidado. Cada día está diseñado para que tu hijo crezca — y se divierta como nunca.</span></p>
+    </div>
+
+    <div class="activities">
+      <div class="act-card">
+        <div class="icon">🏊</div>
+        <h3><span class="en">Weekly Pool Days</span><span class="es">Días de Piscina Semanales</span></h3>
+        <p><span class="en">Every week, the kids cool off, play, and learn water confidence in a supervised setting.</span><span class="es">Cada semana, los niños se refrescan, juegan, y aprenden a sentirse seguros en el agua, siempre bajo supervisión.</span></p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🚌</div>
+        <h3><span class="en">Field Trips That Wow</span><span class="es">Paseos Inolvidables</span></h3>
+        <p><span class="en">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, water parks &amp; more.</span><span class="es">Lion Country Safari, Frost Museum, Wynwood Walls, Río Oleta, parques de agua y más.</span></p>
+      </div>
+      <div class="act-card">
+        <div class="icon">👩‍🍳</div>
+        <h3><span class="en">In-House Chef Meals</span><span class="es">Comidas de Chef en Casa</span></h3>
+        <p><span class="en">Real food, cooked fresh on-site every day — not packaged, not catered. Allergies accommodated.</span><span class="es">Comida real, cocinada fresca en el lugar todos los días — no empacada, no catering. Acomodamos alergias.</span></p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🎨</div>
+        <h3><span class="en">Art, Chess, Music &amp; Karate</span><span class="es">Arte, Ajedrez, Música y Karate</span></h3>
+        <p><span class="en">Daily extracurriculars they'd never get at a regular camp — and they get to pick what they love.</span><span class="es">Actividades diarias que no encontrarías en un campamento normal — y eligen lo que más les gusta.</span></p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🧘</div>
+        <h3><span class="en">Calm Mornings &amp; Journaling</span><span class="es">Mañanas Tranquilas y Diario</span></h3>
+        <p><span class="en">A peaceful start to every day to help kids focus, breathe, and learn to know themselves.</span><span class="es">Un inicio tranquilo cada día para ayudarles a enfocarse, respirar y conocerse a sí mismos.</span></p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🎓</div>
+        <h3><span class="en">Light Academic Practice</span><span class="es">Práctica Académica Ligera</span></h3>
+        <p><span class="en">A bit of reading and math each day so your child doesn't lose ground over the summer.</span><span class="es">Lectura y matemáticas cada día para que tu hijo no pierda terreno durante el verano.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mosaic-section">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow"><span class="en">Inside the program</span><span class="es">Dentro del programa</span></span>
+      <h2><span class="en">A look at last summer.</span><span class="es">Un vistazo al verano pasado.</span></h2>
+    </div>
+    <div class="mosaic">
+      <div class="tile tall"><img src="assets/photos/cooking-class.jpg" alt="" /></div>
+      <div class="tile wide"><img src="assets/photos/dance-class.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/pumpkin-patch.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/graffiti-art.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/holiday-party.jpg" alt="" /></div>
+      <div class="tile wide"><img src="assets/photos/wagon-ride.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/flower-arranging.jpg" alt="" /></div>
+      <div class="tile tall"><img src="assets/photos/beach-portrait.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/culture-projects.jpg" alt="" /></div>
+      <div class="tile"><img src="assets/photos/workshop-fears.jpg" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="container">
+    <div class="section-title">
+      <h2><span class="en">Why parents trust us with their kids.</span><span class="es">Por qué los padres confían sus hijos a nosotros.</span></h2>
+    </div>
+    <div class="grid">
+      <div class="trust-stat">
+        <div class="num">12:1</div>
+        <div class="label"><span class="en">Care ratio per qualified adult</span><span class="es">Proporción por adulto calificado</span></div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">100%</div>
+        <div class="label"><span class="en">Staff Level-2 background screened</span><span class="es">Personal con verificación Nivel-2</span></div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">3</div>
+        <div class="label"><span class="en">Languages on staff (EN · ES · Creole)</span><span class="es">Idiomas (EN · ES · Creole)</span></div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">AHCA</div>
+        <div class="label"><span class="en">Florida-certified facility</span><span class="es">Centro certificado en Florida</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow"><span class="en">Winter Park Location</span><span class="es">Ubicación en Winter Park</span></span>
+      <h2><span class="en">Right here in Winter Park.</span><span class="es">Aquí mismo en Winter Park.</span></h2>
+    </div>
+
+    <div class="location-card">
+      <div class="info">
+        <h2 style="font-size:clamp(1.4rem,2.4vw,1.8rem)">United Church of God</h2>
+        <p style="color:var(--ink-soft);margin-top:8px">
+          <span class="en">Our Winter Park summer camp runs out of a beautiful, safe facility right in the heart of the community.</span>
+          <span class="es">Nuestro campamento de verano en Winter Park funciona en una hermosa y segura instalación en el corazón de la comunidad.</span>
+        </p>
+
+        <div class="meta">
+          <div class="meta-row">
+            <div class="ic">📍</div>
+            <div>
+              <div class="label"><span class="en">Address</span><span class="es">Dirección</span></div>
+              <div class="value">800 Symonds Ave, Winter Park, FL 32789</div>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="ic">📅</div>
+            <div>
+              <div class="label"><span class="en">Dates</span><span class="es">Fechas</span></div>
+              <div class="value"><span class="en">June 8 – August 7, 2026</span><span class="es">8 de Junio – 7 de Agosto, 2026</span></div>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="ic">⏰</div>
+            <div>
+              <div class="label"><span class="en">Hours</span><span class="es">Horarios</span></div>
+              <div class="value"><span class="en">Mon–Thu 8:30am – 4:00pm · Fri 8:30am – 12:30pm</span><span class="es">Lun–Jue 8:30am – 4:00pm · Vie 8:30am – 12:30pm</span></div>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="ic">👶</div>
+            <div>
+              <div class="label"><span class="en">Ages</span><span class="es">Edades</span></div>
+              <div class="value"><span class="en">5 – 17 (grouped by age &amp; developmental stage)</span><span class="es">5 – 17 (agrupados por edad y desarrollo)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#apply" class="btn btn-primary"><span class="en">Apply for This Location →</span><span class="es">Aplica para Esta Ubicación →</span></a>
+      </div>
+
+      <div class="map">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=800+Symonds+Ave,+Winter+Park,+FL+32789&output=embed"
+          title="Map: 800 Symonds Ave, Winter Park, FL"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow"><span class="en">How it works</span><span class="es">Cómo funciona</span></span>
+      <h2><span class="en">From "interested" to "first day" — in 4 simple steps.</span><span class="es">De "interesado" a "primer día" — en 4 pasos simples.</span></h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3><span class="en">Apply online</span><span class="es">Aplica en línea</span></h3>
+        <p><span class="en">Fill out the 2-minute form below with your phone, insurance, and your child's age.</span><span class="es">Llena el formulario de 2 minutos abajo con tu teléfono, seguro, y la edad de tu hijo.</span></p>
+      </div>
+      <div class="step">
+        <h3><span class="en">We call you back</span><span class="es">Te llamamos</span></h3>
+        <p><span class="en">Robyn, our program coordinator, calls you the same day to confirm your insurance covers it.</span><span class="es">Robyn, nuestra coordinadora, te llama el mismo día para confirmar que tu seguro lo cubre.</span></p>
+      </div>
+      <div class="step">
+        <h3><span class="en">Quick paperwork</span><span class="es">Papeleo rápido</span></h3>
+        <p><span class="en">Send us a copy of the insurance card, your ID, and your child's report card. We handle the rest.</span><span class="es">Mándanos una copia de la tarjeta del seguro, tu ID, y la libreta de calificaciones. Nosotros hacemos el resto.</span></p>
+      </div>
+      <div class="step">
+        <h3><span class="en">First day: June 8</span><span class="es">Primer día: 8 de Junio</span></h3>
+        <p><span class="en">Drop off at 8:30am — your child is already part of the family.</span><span class="es">Entrega a las 8:30am — tu hijo ya es parte de la familia.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container-narrow">
+    <div class="section-title">
+      <span class="eyebrow">FAQ</span>
+      <h2><span class="en">The questions parents ask us most.</span><span class="es">Las preguntas que más nos hacen.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq">
+        <summary><span class="en">Is it really 100% free?</span><span class="es">¿De verdad es 100% gratis?</span></summary>
+        <div class="answer"><span class="en">Yes — if your child is covered by Medicaid or by Sunshine, CMS, Community Care Plan, or Aetna, the program is fully covered. We verify your coverage before camp starts. There are no hidden fees.</span><span class="es">Sí — si tu hijo está cubierto por Medicaid o por Sunshine, CMS, Community Care Plan o Aetna, el programa es 100% cubierto. Verificamos tu cobertura antes del campamento. Sin costos ocultos.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What insurances do you accept?</span><span class="es">¿Qué seguros aceptan?</span></summary>
+        <div class="answer"><span class="en">Florida Medicaid, Sunshine, CMS, Community Care Plan, and Aetna — for both Medicaid and private insurance plans. If you're not sure if yours qualifies, apply and we'll check for you.</span><span class="es">Florida Medicaid, Sunshine, CMS, Community Care Plan y Aetna — tanto Medicaid como seguros privados. Si no estás seguro si el tuyo califica, aplica y lo revisamos por ti.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What ages do you accept?</span><span class="es">¿Qué edades aceptan?</span></summary>
+        <div class="answer"><span class="en">Kids ages 5 to 17. We group children by age and developmental stage: 5–9, 10–12, 12–15, and 14–17.</span><span class="es">Niños de 5 a 17 años. Los agrupamos por edad y desarrollo: 5–9, 10–12, 12–15, y 14–17.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What does a typical day look like?</span><span class="es">¿Cómo es un día típico?</span></summary>
+        <div class="answer"><span class="en">8:30am drop-off &amp; breakfast · mindfulness · weekly topic &amp; activity · journaling · home-cooked lunch · light academic practice · extracurricular (art, chess, karate, music) · free time · 4:00pm pickup. Fridays are shorter — pickup at 12:30pm. Pool day every week + field trips.</span><span class="es">8:30am llegada y desayuno · mindfulness · tema y actividad de la semana · diario · almuerzo casero · práctica académica ligera · actividad extracurricular (arte, ajedrez, karate, música) · tiempo libre · 4:00pm salida. Los viernes son más cortos — salida 12:30pm. Día de piscina cada semana + paseos.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">Is transportation included?</span><span class="es">¿Incluyen transporte?</span></summary>
+        <div class="answer"><span class="en">Drop-off and pickup happen on-site. We arrange transportation only when no other option exists. We'll walk you through this when we call.</span><span class="es">La entrega y recogida son en el lugar. Coordinamos transporte solo cuando no hay otra opción. Te explicamos todo cuando te llamemos.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What does my child need to bring?</span><span class="es">¿Qué necesita traer mi hijo?</span></summary>
+        <div class="answer"><span class="en">Nothing on most days — meals are provided. On pool days and field trips we'll send specific instructions ahead of time at the mandatory parent orientation.</span><span class="es">Nada en la mayoría de días — incluimos las comidas. En días de piscina y paseos te mandamos instrucciones antes en la orientación obligatoria de padres.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">Is your staff really qualified?</span><span class="es">¿Su personal está realmente calificado?</span></summary>
+        <div class="answer"><span class="en">Yes — we are AHCA-certified by the State of Florida, and every single staff member completes a Level-2 background screening (the most thorough background check available in Florida). The ratio is 12 kids to 1 qualified adult plus an intern.</span><span class="es">Sí — somos certificados por AHCA del Estado de Florida, y cada miembro del personal pasa una verificación de antecedentes Nivel-2 (la más completa en Florida). La proporción es 12 niños por cada adulto calificado más un practicante.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What if my child has allergies or needs medication?</span><span class="es">¿Y si mi hijo tiene alergias o necesita medicamento?</span></summary>
+        <div class="answer"><span class="en">We collect this in your enrollment form and keep it with our team and in eating areas. We don't administer routine medication, only in urgent situations and always with parental consent.</span><span class="es">Lo recogemos en tu formulario de inscripción y lo mantenemos con el equipo y en áreas de comida. No damos medicamento de rutina, solo en situaciones urgentes y siempre con tu consentimiento.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">What if my child doesn't have Medicaid or one of the listed insurances?</span><span class="es">¿Y si mi hijo no tiene Medicaid o uno de los seguros listados?</span></summary>
+        <div class="answer"><span class="en">Apply anyway — we'll talk you through the options. We're working on private-pay rates for Winter Park families who don't have qualifying coverage.</span><span class="es">Aplica de todos modos — te explicamos tus opciones. Estamos trabajando en precios privados para familias en Winter Park que no tengan cobertura que califique.</span></div>
+      </details>
+      <details class="faq">
+        <summary><span class="en">Can I withdraw my child if it isn't a fit?</span><span class="es">¿Puedo retirar a mi hijo si no le gusta?</span></summary>
+        <div class="answer"><span class="en">Absolutely. Parents are free to withdraw at any time. There's no commitment.</span><span class="es">Por supuesto. Los padres pueden retirar a su hijo en cualquier momento. No hay compromiso.</span></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="form-section">
+  <div class="container-narrow">
+    <div class="section-title">
+      <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span></span>
+      <h2><span class="en">Reserve your child's free spot.</span><span class="es">Reserva el cupo gratis de tu hijo.</span></h2>
+      <p class="lead-sub"><span class="en">Takes 2 minutes. Robyn calls you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Robyn te llama el mismo día para confirmar tu seguro e inscribir a tu hijo.</span></p>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label><span class="en">Parent / Guardian Name</span><span class="es">Nombre del Padre / Tutor</span></label>
+          <input type="text" name="parent_name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label><span class="en">Phone Number</span><span class="es">Teléfono</span></label>
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="(407) 555-0123" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label><span class="en">Child's Age</span><span class="es">Edad del Niño</span></label>
+          <select name="child_age" required>
+            <option value="" data-en="Select age" data-es="Seleccionar edad">Select age</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+            <option>9</option><option>10</option><option>11</option><option>12</option>
+            <option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
+          </select>
+        </div>
+        <div class="field">
+          <label><span class="en">How many children?</span><span class="es">¿Cuántos niños?</span></label>
+          <select name="num_children" required>
+            <option value="">—</option>
+            <option>1</option><option>2</option><option>3</option><option>4+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label><span class="en">Insurance Plan</span><span class="es">Plan de Seguro</span></label>
+        <select name="insurance" required>
+          <option value="" data-en="Select your insurance" data-es="Selecciona tu seguro">Select your insurance</option>
+          <option>Florida Medicaid</option>
+          <option>Sunshine</option>
+          <option>CMS</option>
+          <option>Community Care Plan</option>
+          <option>Aetna</option>
+          <option>Other / Not sure</option>
+          <option>No insurance</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg submit">
+        <span class="en">Reserve My Child's Spot →</span><span class="es">Reservar el Cupo →</span>
+      </button>
+      <p class="disclaimer">
+        <span class="en">By submitting, you agree to be contacted by phone and SMS by Heal Grow Thrive about your application. Your information stays private and is never sold.</span>
+        <span class="es">Al enviar, aceptas ser contactado por teléfono y SMS por Heal Grow Thrive sobre tu solicitud. Tu información es privada y nunca se vende.</span>
+      </p>
+    </form>
+
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="check">✓</div>
+      <h3><span class="en">You're in! 🎉</span><span class="es">¡Listo! 🎉</span></h3>
+      <p><span class="en">Robyn will call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Robyn te llamará en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="grid">
+      <a href="#top" class="brand">
+        <img src="assets/logos/hgt-logo.png" alt="" style="width:36px;height:40px;object-fit:contain" />
+        <span class="name">
+          <span class="t1">Life Skills, Summer Thrills</span>
+          <span class="t2"><span class="en">Powered by Heal Grow Thrive</span><span class="es">Por Heal Grow Thrive</span></span>
+        </span>
+      </a>
+      <div class="legal">
+        <span class="en">Heal Grow Thrive is a Florida AHCA-certified provider. The Life Skills, Summer Thrills program is offered through covered insurance benefits including Florida Medicaid, Sunshine, CMS, Community Care Plan, and Aetna.</span>
+        <span class="es">Heal Grow Thrive es un proveedor certificado por AHCA en Florida. El programa Life Skills, Summer Thrills se ofrece a través de los beneficios cubiertos por Florida Medicaid, Sunshine, CMS, Community Care Plan y Aetna.</span>
+      </div>
+      <div class="partner">
+        <img src="assets/logos/thrive-blossom-logo.png" alt="Thrive and Blossom" />
+        <div><span class="en">In partnership with<br/>Thrive and Blossom</span><span class="es">En alianza con<br/>Thrive and Blossom</span></div>
+      </div>
+    </div>
+    <div class="copy">© 2026 Heal Grow Thrive · Winter Park, FL · 800 Symonds Ave</div>
+  </div>
+</footer>
+
+<a href="#apply" class="sticky-cta">
+  <span class="en">Apply Today — Free Spot →</span><span class="es">Aplica Hoy — Cupo Gratis →</span>
+</a>
+
+<script>
+  // ── Language toggle ─────────────────────────────────────
+  const setLang = (l) => {
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l);
+    document.querySelectorAll('[data-set-lang]').forEach(b => {
+      b.classList.toggle('active', b.dataset.setLang === l);
+    });
+    document.querySelectorAll('option[data-en]').forEach(o => {
+      o.textContent = o.dataset[l] || o.dataset.en;
+    });
+    try { localStorage.setItem('hgt_lang', l); } catch(e){}
+  };
+  document.querySelectorAll('[data-set-lang]').forEach(b => {
+    b.addEventListener('click', () => setLang(b.dataset.setLang));
+  });
+  try {
+    const stored = localStorage.getItem('hgt_lang');
+    if (stored === 'es' || stored === 'en') setLang(stored);
+    else if (navigator.language && navigator.language.toLowerCase().startsWith('es')) setLang('es');
+  } catch(e){}
+
+  // ── Lead form ──────────────────────────────────────────
+  // To wire to a real endpoint, replace FORM_ENDPOINT below with:
+  //   - a Formspree URL: https://formspree.io/f/XXXXXXXX
+  //   - or a webhook URL (Virtual Scale / GoHighLevel / Zapier)
+  // If left empty, the form still shows success UI for testing.
+  const FORM_ENDPOINT = ''; // <-- TODO: paste real endpoint here
+
+  const form = document.getElementById('leadForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.source_page = 'life-skills-summer-thrills-winter-park';
+    data.submitted_at = new Date().toISOString();
+
+    if (FORM_ENDPOINT) {
+      try {
+        await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch(err) {
+        console.warn('Form submit failed:', err);
+      }
+    } else {
+      console.log('Lead captured (no endpoint configured):', data);
+    }
+
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>

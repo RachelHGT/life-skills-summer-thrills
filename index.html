@@ -91,10 +91,15 @@
   .hero-bg{position:absolute;inset:0;z-index:1;transition:opacity .15s ease}
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
   .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(15,40,30,.55) 100%)}
-  .hero-title-row{position:absolute;top:11%;left:0;right:0;z-index:3;display:flex;justify-content:center;align-items:center;gap:0;pointer-events:none;font-family:'Fraunces',serif;font-weight:600;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.4);font-size:clamp(1.8rem,7vw,5.5rem);letter-spacing:-.02em;line-height:1;transition:transform .15s ease,opacity .15s ease;padding:0 16px;text-align:center;flex-wrap:wrap}
-  .hero-title-row .word{display:inline-block;will-change:transform}
-  .hero-title-row .word.left{transform:translateX(calc(var(--tx,0) * -1px))}
-  .hero-title-row .word.right{transform:translateX(calc(var(--tx,0) * 1px));font-style:italic;color:#FFCBC2;margin-left:.4em}
+  .hero-title-row{position:absolute;top:7%;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;pointer-events:none;text-align:center;padding:0 16px;transition:transform .15s ease,opacity .15s ease}
+  .hero-title-eyebrow{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);text-shadow:0 2px 12px rgba(0,0,0,.4);position:relative;padding:0 36px;line-height:1}
+  .hero-title-eyebrow::before,.hero-title-eyebrow::after{content:"";position:absolute;top:50%;width:24px;height:1px;background:rgba(255,255,255,.6)}
+  .hero-title-eyebrow::before{right:100%}
+  .hero-title-eyebrow::after{left:100%}
+  .hero-title-words{display:flex;justify-content:center;align-items:center;gap:0;font-family:'Fraunces',serif;font-weight:700;color:#fff;text-shadow:0 6px 28px rgba(0,0,0,.45);font-size:clamp(2.2rem,7.8vw,6rem);letter-spacing:-.025em;line-height:.98;flex-wrap:wrap}
+  .hero-title-words .word{display:inline-block;will-change:transform}
+  .hero-title-words .word.left{transform:translateX(calc(var(--tx,0) * -1px))}
+  .hero-title-words .word.right{transform:translateX(calc(var(--tx,0) * 1px));font-style:italic;color:#FFCBC2;margin-left:.4em}
   .hero-media{position:relative;z-index:2;width:420px;height:540px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-xl);transition:width .15s ease,height .15s ease,border-radius .15s ease;will-change:width,height;max-width:95vw;max-height:85vh}
   .hero-media.full{border-radius:0}
   .hero-media img{width:100%;height:100%;object-fit:cover}
@@ -327,8 +332,13 @@
   <div class="hero-stage" id="heroStage">
     <div class="hero-bg" id="heroBg"><img src="assets/photos/hero-bg.jpg" alt="" /></div>
     <div class="hero-title-row" id="heroTitle">
-      <span class="word left">Life Skills,</span>
-      <span class="word right">Summer Thrills</span>
+      <span class="hero-title-eyebrow">
+        <span class="en">Welcome to</span><span class="es">Bienvenidos a</span><span class="cr">Byenveni nan</span>
+      </span>
+      <span class="hero-title-words">
+        <span class="word left">Life Skills,</span>
+        <span class="word right">Summer Thrills</span>
+      </span>
     </div>
     <div class="hero-media" id="heroMedia">
       <img src="assets/photos/hero.jpg" alt="A summer day at Life Skills, Summer Thrills" />

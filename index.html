@@ -95,11 +95,9 @@
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
   .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(15,40,30,.55) 100%)}
   .hero-title-row{position:absolute;top:7%;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;pointer-events:none;text-align:center;padding:0 16px;transition:transform .15s ease,opacity .15s ease}
-  .hero-title-eyebrow{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);text-shadow:0 2px 12px rgba(0,0,0,.4);position:relative;padding:0 36px;line-height:1}
-  .hero-title-eyebrow::before,.hero-title-eyebrow::after{content:"";position:absolute;top:50%;width:24px;height:1px;background:rgba(255,255,255,.6)}
-  .hero-title-eyebrow::before{right:100%}
-  .hero-title-eyebrow::after{left:100%}
-  .hero-title-words{display:flex;justify-content:center;align-items:center;gap:0;font-family:'Fraunces',serif;font-weight:700;color:#fff;text-shadow:0 6px 28px rgba(0,0,0,.45);font-size:clamp(2.2rem,7.8vw,6rem);letter-spacing:-.025em;line-height:.98;flex-wrap:wrap}
+  .hero-title-eyebrow{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.95);text-shadow:0 2px 12px rgba(0,0,0,.4);position:relative;padding:0 14px;line-height:1.2;display:inline-block;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 18px;backdrop-filter:blur(4px)}
+  @media (max-width:540px){.hero-title-eyebrow{font-size:11px;letter-spacing:.18em;padding:7px 14px}}
+  .hero-title-words{display:flex;justify-content:center;align-items:center;gap:0;font-family:'Fraunces',serif;font-weight:700;color:#fff;text-shadow:0 6px 28px rgba(0,0,0,.45);font-size:clamp(2.6rem,8.2vw,6.4rem);letter-spacing:-.025em;line-height:.98;flex-wrap:wrap}
   .hero-title-words .word{display:inline-block;will-change:transform}
   .hero-title-words .word.left{transform:translateX(calc(var(--tx,0) * -1px))}
   .hero-title-words .word.right{transform:translateX(calc(var(--tx,0) * 1px));font-style:italic;color:#FFCBC2;margin-left:.4em}
@@ -135,7 +133,7 @@
   .hero-trust > span::before{content:"✓";color:var(--teal);font-weight:700}
 
   /* Sections */
-  section{padding:96px 0}
+  section{padding:88px 0}
   .section-title{text-align:center;max-width:680px;margin:0 auto 56px}
   .section-title h2{margin-bottom:14px}
   .section-title p{color:var(--ink-soft);font-size:1.08rem}
@@ -181,7 +179,7 @@
   }
 
   /* Story split */
-  .story-section{background:var(--cream-warm);padding:104px 0}
+  .story-section{background:var(--cream-warm);padding:96px 0 80px}
   .story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .story.flip{direction:rtl}.story.flip>*{direction:ltr}
   .story-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow-lg)}
@@ -225,7 +223,7 @@
   .step p{color:var(--ink-soft);font-size:.92rem;margin:0;line-height:1.55}
 
   /* FAQ */
-  .faq-section{background:var(--cream-warm);padding:96px 0}
+  .faq-section{background:var(--cream-warm);padding:88px 0 72px}
   .faq-list{max-width:760px;margin:0 auto}
   .faq{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:box-shadow .2s ease}
   .faq[open]{box-shadow:var(--shadow-sm)}
@@ -325,7 +323,7 @@
         <button data-set-lang="cr" type="button" title="Kreyòl Ayisyen">KR</button>
       </div>
       <a href="#apply" class="btn btn-primary nav-cta">
-        <span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span>
+        <span class="en">Apply Free</span><span class="es">Aplica Gratis</span><span class="cr">Aplike Gratis</span>
       </a>
     </div>
   </div>
@@ -336,7 +334,7 @@
     <div class="hero-bg" id="heroBg"><img src="assets/photos/hero-bg.jpg" alt="" /></div>
     <div class="hero-title-row" id="heroTitle">
       <span class="hero-title-eyebrow">
-        <span class="en">Welcome to</span><span class="es">Bienvenidos a</span><span class="cr">Byenveni nan</span>
+        <span class="en">A Free Summer Camp · Winter Park 2026</span><span class="es">Campamento de Verano Gratis · Winter Park 2026</span><span class="cr">Yon Kan Ete Gratis · Winter Park 2026</span>
       </span>
       <span class="hero-title-words">
         <span class="word left">Life Skills,</span>
@@ -376,9 +374,9 @@
       </h1>
 
       <p class="sub">
-        <span class="en">9 weeks of pool days, field trips, in-house chef meals, art, chess, and karate — in a safe, caring space in Winter Park, FL. Ages 5–17.</span>
-        <span class="es">9 semanas de piscina, paseos, comidas hechas en casa por nuestro chef, arte, ajedrez y karate — en un lugar seguro y acogedor en Winter Park, FL. Edades 5 a 17.</span>
-        <span class="cr">9 semèn ak jou pisin, vwayaj, manje chef andedan, atizay, echèk, ak karate — nan yon espas san danje epi ki pran swen nan Winter Park, FL. Laj 5 a 17.</span>
+        <span class="en">Nine weeks of pool days, field trips, home-cooked meals, art, music, and martial arts — a real Florida summer for kids ages 5 to 17. Completely free with Medicaid.</span>
+        <span class="es">Nueve semanas de piscina, paseos, comida casera, arte, música y artes marciales — un verano de verdad en Florida para niños de 5 a 17 años. Totalmente gratis con Medicaid.</span>
+        <span class="cr">Nèf semèn ak jou pisin, vwayaj, manje fèt nan kay la, atizay, mizik, ak atizay maryal — yon vrè ete Florid pou timoun ki gen laj 5 a 17. Antyèman gratis ak Medicaid.</span>
       </p>
 
       <div class="coverage-badge">
@@ -395,7 +393,7 @@
 
       <div class="hero-ctas">
         <a href="#apply" class="btn btn-primary btn-lg">
-          <span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span><span class="cr">Aplike Jodi a →</span>
+          <span class="en">Apply Today for Free →</span><span class="es">Aplica Hoy Gratis →</span><span class="cr">Aplike Jodi a Gratis →</span>
         </a>
         <a href="#how" class="btn btn-ghost btn-lg">
           <span class="en">How it works</span><span class="es">Cómo funciona</span><span class="cr">Kòman li mache</span>
@@ -416,7 +414,7 @@
   <div class="container">
     <div class="section-title reveal">
       <span class="eyebrow"><span class="en">A summer they'll talk about all year</span><span class="es">Un verano del que hablarán todo el año</span><span class="cr">Yon ete y ap pale toute lane</span></span>
-      <h2><span class="en">Real fun. Real friendships. Real food.</span><span class="es">Diversión real. Amigos reales. Comida real.</span><span class="cr">Vrè plezi. Vrè zanmi. Vrè manje.</span></h2>
+      <h2><span class="en">Days they'll love. Friends they'll keep.</span><span class="es">Días que adorarán. Amigos para toda la vida.</span><span class="cr">Jou yo pral renmen. Zanmi yo pral kenbe.</span></h2>
       <p><span class="en">Every day is built to help your child grow — while having a blast.</span><span class="es">Cada día está diseñado para que tu hijo crezca — y se divierta como nunca.</span><span class="cr">Chak jou fèt pou ede pitit ou grandi — pandan l ap pran anpil plezi.</span></p>
     </div>
 
@@ -434,34 +432,34 @@
 
       <article class="photo-card reveal reveal-delay-1">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Field Trip</span><span class="es">Paseo</span><span class="cr">Vwayaj</span></span>
+          <span class="activity-pin"><span class="en">Field Trips</span><span class="es">Paseos</span><span class="cr">Vwayaj</span></span>
           <img src="assets/photos/wagon-ride.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Field Trips That Wow</span><span class="es">Paseos Inolvidables</span><span class="cr">Vwayaj k ap Etone Ou</span></h3>
-          <p><span class="en">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, water parks &amp; more.</span><span class="es">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, parques acuáticos y más.</span><span class="cr">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, pak dlo ak plis ankò.</span></p>
+          <h3><span class="en">Field Trips</span><span class="es">Paseos</span><span class="cr">Vwayaj</span></h3>
+          <p><span class="en">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, water parks and more.</span><span class="es">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, parques acuáticos y más.</span><span class="cr">Lion Country Safari, Frost Museum, Wynwood Walls, Oleta River, pak dlo ak plis ankò.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal reveal-delay-2">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Cooking Class</span><span class="es">Clase de Cocina</span><span class="cr">Klas Kwizin</span></span>
+          <span class="activity-pin"><span class="en">Real Food</span><span class="es">Comida Real</span><span class="cr">Vrè Manje</span></span>
           <img src="assets/photos/cooking-class.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">In-House Chef Meals</span><span class="es">Comidas de Chef en Casa</span><span class="cr">Manje Chef Andedan</span></h3>
-          <p><span class="en">Home-cooked food made fresh on-site every day — not packaged, not catered. Allergies accommodated.</span><span class="es">Comida hecha fresca en el lugar todos los días — no empacada, no catering. Acomodamos alergias.</span><span class="cr">Manje fèt fre sou plas chak jou — pa nan pakèt, pa katera. N akomode alèji.</span></p>
+          <h3><span class="en">Meals From Our In-House Chef</span><span class="es">Comidas de Nuestro Chef</span><span class="cr">Manje Chef Andedan</span></h3>
+          <p><span class="en">Real home-cooked food made fresh on-site every day. Premium ingredients, never catered, never packaged. Allergies accommodated.</span><span class="es">Comida real hecha en casa, fresca en el lugar todos los días. Ingredientes de primera, sin catering ni empaques. Acomodamos alergias.</span><span class="cr">Vrè manje fèt nan kay la, fre sou plas chak jou. Bon engredyan, pa katera, pa pake. N akomode alèji.</span></p>
         </div>
       </article>
 
       <article class="photo-card reveal">
         <div class="img-wrap">
-          <span class="activity-pin"><span class="en">Art &amp; Crafts</span><span class="es">Arte y Manualidades</span><span class="cr">Atizay ak Atizana</span></span>
+          <span class="activity-pin"><span class="en">Art &amp; Music</span><span class="es">Arte y Música</span><span class="cr">Atizay ak Mizik</span></span>
           <img src="assets/photos/graffiti-art.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Art, Chess, Music &amp; Karate</span><span class="es">Arte, Ajedrez, Música y Karate</span><span class="cr">Atizay, Echèk, Mizik ak Karate</span></h3>
-          <p><span class="en">Daily extracurriculars they'd never get at a regular camp — they pick what they love.</span><span class="es">Actividades diarias que no encontrarían en un campamento normal — eligen lo que más aman.</span><span class="cr">Aktivite chak jou yo p ap janm jwenn nan yon kan òdinè — yo chwazi sa yo renmen.</span></p>
+          <h3><span class="en">Art, Chess &amp; Music</span><span class="es">Arte, Ajedrez y Música</span><span class="cr">Atizay, Echèk ak Mizik</span></h3>
+          <p><span class="en">Activities they won't get at a regular camp. Your child picks what they love.</span><span class="es">Actividades que no encontrarías en un campamento normal. Tu hijo elige lo que más le gusta.</span><span class="cr">Aktivite yo p ap jwenn nan yon kan òdinè. Pitit ou chwazi sa li renmen.</span></p>
         </div>
       </article>
 
@@ -471,8 +469,8 @@
           <img src="assets/photos/dance-class.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Martial Arts &amp; Self-Defense</span><span class="es">Artes Marciales y Defensa Personal</span><span class="cr">Atizay Maryal ak Defans Pèsonèl</span></h3>
-          <p><span class="en">Weekly karate and self-defense training that builds discipline, focus, and real confidence.</span><span class="es">Entrenamiento semanal de karate y defensa personal que desarrolla disciplina, concentración y confianza real.</span><span class="cr">Antrènman karate ak defans pèsonèl chak semèn ki bati disiplin, konsantrasyon, ak vrè konfyans.</span></p>
+          <h3><span class="en">Martial Arts</span><span class="es">Artes Marciales</span><span class="cr">Atizay Maryal</span></h3>
+          <p><span class="en">Karate training that builds discipline, focus, and real confidence.</span><span class="es">Entrenamiento de karate que desarrolla disciplina, concentración y confianza real.</span><span class="cr">Antrènman karate ki bati disiplin, konsantrasyon, ak vrè konfyans.</span></p>
         </div>
       </article>
 
@@ -482,8 +480,8 @@
           <img src="assets/photos/workshop-fears.jpg" alt="" loading="lazy" />
         </div>
         <div class="body">
-          <h3><span class="en">Mindful Mornings</span><span class="es">Mañanas Conscientes</span><span class="cr">Maten Konsyan</span></h3>
-          <p><span class="en">A peaceful start to every day to help kids focus, breathe, and learn to know themselves.</span><span class="es">Un inicio tranquilo cada día para ayudarles a enfocarse, respirar y conocerse a sí mismos.</span><span class="cr">Yon kòmansman trankil chak jou pou ede timoun yo konsantre, respire, ak konnen tèt yo.</span></p>
+          <h3><span class="en">Calm Mornings</span><span class="es">Mañanas Tranquilas</span><span class="cr">Maten Kalm</span></h3>
+          <p><span class="en">A peaceful start to every day to help kids focus, breathe, and feel grounded.</span><span class="es">Un inicio tranquilo cada día para ayudarles a enfocarse, respirar y sentirse en calma.</span><span class="cr">Yon kòmansman trankil chak jou pou ede timoun yo konsantre, respire, epi santi yo byen.</span></p>
         </div>
       </article>
     </div>
@@ -496,11 +494,10 @@
   <div class="inner">
     <div class="quote-mark">"</div>
     <h2>
-      <span class="en">Where kids come back happier than they left.</span>
-      <span class="es">Donde los niños regresan más felices de cómo llegaron.</span>
-      <span class="cr">Kote timoun yo retounen pi kontan pase yo te ye lè yo te vini.</span>
+      <span class="en">Where every kid finds their people.</span>
+      <span class="es">Donde cada niño encuentra a los suyos.</span>
+      <span class="cr">Kote chak timoun jwenn moun li yo.</span>
     </h2>
-    <div class="attrib"><span class="en">— What our parents tell us</span><span class="es">— Lo que nos dicen los padres</span><span class="cr">— Sa paran nou yo di nou</span></div>
   </div>
 </section>
 
@@ -565,7 +562,7 @@
       <span class="es">Reserva el cupo de tu hijo antes que empiece el verano.</span>
       <span class="cr">Rezève plas pitit ou anvan ete a kòmanse.</span>
     </h2>
-    <div class="attrib" style="margin-top:28px"><a href="#apply" class="btn btn-primary"><span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span><span class="cr">Aplike Jodi a →</span></a></div>
+    <div class="attrib" style="margin-top:28px"><a href="#apply" class="btn btn-primary"><span class="en">Apply Today for Free →</span><span class="es">Aplica Hoy Gratis →</span><span class="cr">Aplike Jodi a Gratis →</span></a></div>
   </div>
 </section>
 
@@ -637,7 +634,7 @@
             </div>
           </div>
 
-          <a href="#apply" class="btn btn-primary"><span class="en">Apply for Winter Park →</span><span class="es">Aplica para Winter Park →</span><span class="cr">Aplike pou Winter Park →</span></a>
+          <a href="#apply" class="btn btn-primary"><span class="en">Apply for Free →</span><span class="es">Aplica Gratis →</span><span class="cr">Aplike Gratis →</span></a>
         </div>
         <div class="location-map">
           <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -657,7 +654,7 @@
   <div class="container">
     <div class="section-title reveal">
       <span class="eyebrow"><span class="en">How it works</span><span class="es">Cómo funciona</span><span class="cr">Kòman li mache</span></span>
-      <h2><span class="en">From "interested" to "first day" — in 3 steps.</span><span class="es">De "interesado" a "primer día" — en 3 pasos.</span><span class="cr">Soti nan "enterese" pou rive nan "premye jou" — nan 3 etap.</span></h2>
+      <h2><span class="en">Three steps to your kid's best summer.</span><span class="es">Tres pasos al mejor verano de tu hijo.</span><span class="cr">Twa etap pou pi bon ete pitit ou.</span></h2>
     </div>
 
     <div class="steps">
@@ -667,7 +664,7 @@
       </div>
       <div class="step reveal reveal-delay-1">
         <h3><span class="en">We call you back</span><span class="es">Te llamamos</span><span class="cr">Nou rele ou</span></h3>
-        <p><span class="en">Robyn, our coordinator, calls you the same day to confirm your insurance covers it.</span><span class="es">Robyn, nuestra coordinadora, te llama el mismo día para confirmar que tu seguro lo cubre.</span><span class="cr">Robyn, kowòdonatè nou an, rele ou menm jou a pou konfime asirans ou kouvri li.</span></p>
+        <p><span class="en">Our team calls you back the same day to confirm your insurance covers it.</span><span class="es">Nuestro equipo te llama el mismo día para confirmar que tu seguro lo cubre.</span><span class="cr">Ekip nou an rele ou menm jou a pou konfime asirans ou kouvri li.</span></p>
       </div>
       <div class="step reveal reveal-delay-2">
         <h3><span class="en">First day: June 8</span><span class="es">Primer día: 8 de Junio</span><span class="cr">Premye jou: 8 Jen</span></h3>
@@ -721,10 +718,6 @@
         <summary><span class="en">What if my child doesn't have Medicaid or one of the listed insurances?</span><span class="es">¿Y si mi hijo no tiene Medicaid o uno de los seguros listados?</span><span class="cr">E si pitit mwen pa gen Medicaid oswa youn nan asirans yo nonmen?</span></summary>
         <div class="answer"><span class="en">Apply anyway — we'll talk you through the options. We're working on private-pay rates for Winter Park families who don't have qualifying coverage.</span><span class="es">Aplica de todos modos — te explicamos tus opciones. Estamos trabajando en precios privados para familias en Winter Park sin cobertura que califique.</span><span class="cr">Aplike kanmèm — n ap eksplike ou opsyon yo. N ap travay sou pri prive pou fanmi Winter Park ki pa gen kouvèti ki kalifye.</span></div>
       </details>
-      <details class="faq reveal">
-        <summary><span class="en">Can I withdraw my child if it isn't a fit?</span><span class="es">¿Puedo retirar a mi hijo si no le gusta?</span><span class="cr">Èske mwen ka retire pitit mwen si li pa bon?</span></summary>
-        <div class="answer"><span class="en">Absolutely. Parents are free to withdraw at any time. No commitment.</span><span class="es">Por supuesto. Los padres pueden retirar a su hijo en cualquier momento. Sin compromiso.</span><span class="cr">Absoliman. Paran yo ka retire pitit yo nenpòt lè. Pa gen okenn angajman.</span></div>
-      </details>
     </div>
   </div>
 </section>
@@ -735,7 +728,7 @@
     <div class="section-title reveal">
       <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span></span>
       <h2><span class="en">Reserve your child's free spot.</span><span class="es">Reserva el cupo gratis de tu hijo.</span><span class="cr">Rezève plas gratis pitit ou.</span></h2>
-      <p class="lead-sub"><span class="en">Takes 2 minutes. Robyn calls you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Robyn te llama el mismo día para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Pran 2 minit. Robyn rele ou menm jou a pou konfime asirans ou epi enskri pitit ou.</span></p>
+      <p class="lead-sub"><span class="en">Takes 2 minutes. We call you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Te llamamos el mismo día para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Pran 2 minit. N ap rele ou menm jou a pou konfime asirans ou epi enskri pitit ou.</span></p>
     </div>
 
     <form class="lead-form reveal" id="leadForm" novalidate>
@@ -781,7 +774,7 @@
         </select>
       </div>
       <button type="submit" class="btn btn-primary btn-lg submit">
-        <span class="en">Reserve My Child's Spot →</span><span class="es">Reservar el Cupo →</span><span class="cr">Rezève Plas Pitit Mwen →</span>
+        <span class="en">Reserve My Free Spot →</span><span class="es">Reservar el Cupo Gratis →</span><span class="cr">Rezève Plas Gratis Mwen →</span>
       </button>
       <p class="disclaimer">
         <span class="en">By submitting, you agree to be contacted by phone and SMS by Heal Grow Thrive about your application. Your information stays private and is never shared.</span>
@@ -793,7 +786,7 @@
     <div class="form-success" id="formSuccess" style="display:none">
       <div class="check">✓</div>
       <h3><span class="en">You're in! 🎉</span><span class="es">¡Listo! 🎉</span><span class="cr">Ou anndan! 🎉</span></h3>
-      <p><span class="en">Robyn will call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Robyn te llamará en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Robyn ap rele ou nan 24 èdtan (anjeneral menm jou a) pou konfime asirans ou epi enskri pitit ou.</span></p>
+      <p><span class="en">We'll call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Te llamaremos en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">N ap rele ou nan 24 èdtan (anjeneral menm jou a) pou konfime asirans ou epi enskri pitit ou.</span></p>
     </div>
   </div>
 </section>
@@ -837,7 +830,7 @@
 </footer>
 
 <a href="#apply" class="sticky-cta">
-  <span class="en">Apply Today — Free Spot →</span><span class="es">Aplica Hoy — Cupo Gratis →</span><span class="cr">Aplike Jodi a — Plas Gratis →</span>
+  <span class="en">Apply Today for Free →</span><span class="es">Aplica Hoy Gratis →</span><span class="cr">Aplike Jodi a Gratis →</span>
 </a>
 
 <script>

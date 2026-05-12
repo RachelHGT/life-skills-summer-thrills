@@ -148,6 +148,8 @@
   .photo-band{position:relative;min-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:96px 24px;background-color:#0F1A1F}
   .photo-band-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed;z-index:0}
   .photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(15,99,90,.65) 100%);z-index:1}
+  .photo-band.tint-pool::after{background:linear-gradient(180deg, rgba(0,30,60,.30) 0%, rgba(5,80,140,.65) 100%)}
+  .photo-band.tint-summer::after{background:linear-gradient(180deg, rgba(120,40,5,.30) 0%, rgba(232,90,79,.62) 100%)}
   .photo-band .inner{position:relative;z-index:2;max-width:760px}
   .photo-band .activity-pin{position:absolute;top:24px;left:24px;z-index:2}
   .photo-band .quote-mark{font-family:'Fraunces',serif;font-size:5rem;line-height:.6;opacity:.55;color:#FFCBC2;margin-bottom:8px}
@@ -537,6 +539,20 @@
   </div>
 </section>
 
+<section class="photo-band tint-summer reveal" aria-label="Hello summer">
+  <div class="photo-band-bg" style="background-image:url('assets/photos/hello-summer.jpg')"></div>
+  <span class="activity-pin"><span class="en">Camp Opens · June 8</span><span class="es">Apertura · 8 de Junio</span><span class="cr">Kan Ouvri · 8 Jen</span></span>
+  <div class="inner">
+    <div class="quote-mark">☀</div>
+    <h2>
+      <span class="en">Save your child's spot before summer starts.</span>
+      <span class="es">Reserva el cupo de tu hijo antes que empiece el verano.</span>
+      <span class="cr">Rezève plas pitit ou anvan ete a kòmanse.</span>
+    </h2>
+    <div class="attrib" style="margin-top:28px"><a href="#apply" class="btn btn-primary"><span class="en">Apply Today →</span><span class="es">Aplica Hoy →</span><span class="cr">Aplike Jodi a →</span></a></div>
+  </div>
+</section>
+
 <section class="story-section" style="background:var(--cream)">
   <div class="container">
     <div class="story flip">
@@ -618,6 +634,19 @@
         <img src="assets/photos/teacher-circle.jpg" alt="" loading="lazy" />
       </div>
     </div>
+  </div>
+</section>
+
+<section class="photo-band tint-pool reveal" aria-label="Pool day every week">
+  <div class="photo-band-bg" style="background-image:url('assets/photos/pool-ball.jpg')"></div>
+  <span class="activity-pin"><span class="en">Pool · Every Week</span><span class="es">Piscina · Cada Semana</span><span class="cr">Pisin · Chak Semèn</span></span>
+  <div class="inner">
+    <div class="quote-mark">"</div>
+    <h2>
+      <span class="en">Float into the best summer of their lives.</span>
+      <span class="es">A flotar en el mejor verano de sus vidas.</span>
+      <span class="cr">Flote nan pi bon ete lavi yo.</span>
+    </h2>
   </div>
 </section>
 

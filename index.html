@@ -870,6 +870,14 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
 </a>
 
 <script>
+  // ── Meta Pixel custom-event helper ──
+  const fbqTrack = (eventName, params) => {
+    if (typeof fbq === 'function') {
+      try { fbq('trackCustom', eventName, params || {}); }
+      catch(err) { console.warn('fbq trackCustom failed:', err); }
+    }
+  };
+
   // ── Language toggle (EN / ES / CR) ──
   const setLang = (l) => {
     document.documentElement.setAttribute('data-lang', l);
@@ -878,7 +886,27 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
     document.querySelectorAll('option[data-en]').forEach(o => { o.textContent = o.dataset[l] || o.dataset.en; });
     try { localStorage.setItem('hgt_lang', l); } catch(e){}
   };
-  document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+  document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => {
+    setLang(b.dataset.setLang);
+    fbqTrack('Lang_Switch', { language: b.dataset.setLang });
+  }));
+
+  // ── Pixel event: CTA_Click_Apply — fires when any "Apply" CTA is clicked ──
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href="#apply"]');
+    if (link) {
+      fbqTrack('CTA_Click_Apply', { location: link.className.includes('sticky') ? 'sticky' : (link.closest('nav') ? 'nav' : (link.closest('.hero-ctas') ? 'hero' : 'inline')) });
+    }
+  });
+
+  // ── Pixel event: Form_Started — fires once when parent focuses any field in the apply form ──
+  let formStartFired = false;
+  document.getElementById('leadForm').addEventListener('focusin', () => {
+    if (!formStartFired) {
+      formStartFired = true;
+      fbqTrack('Form_Started');
+    }
+  });
   try {
     const stored = localStorage.getItem('hgt_lang');
     if (stored === 'es' || stored === 'en' || stored === 'cr') setLang(stored);

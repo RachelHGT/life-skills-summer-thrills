@@ -14,6 +14,10 @@
 <link rel="preload" as="image" href="assets/photos/hero-bg.jpg" />
 
 <!-- Meta Pixel Code -->
+<!-- Calendly widget assets -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -821,8 +825,9 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
 
     <div class="form-success" id="formSuccess" style="display:none">
       <div class="check">✓</div>
-      <h3><span class="en">You're in! 🎉</span><span class="es">¡Listo! 🎉</span><span class="cr">Ou anndan! 🎉</span></h3>
-      <p><span class="en">We'll call you within 24 hours (usually same day) to confirm your insurance and get your child enrolled.</span><span class="es">Te llamaremos en menos de 24 horas (usualmente el mismo día) para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">N ap rele ou nan 24 èdtan (anjeneral menm jou a) pou konfime asirans ou epi enskri pitit ou.</span></p>
+      <h3><span class="en">Almost done — pick a time for your call</span><span class="es">Ya casi — elige una hora para tu llamada</span><span class="cr">Prèske fini — chwazi yon lè pou apèl ou</span></h3>
+      <p><span class="en">Choose any time below. Our team will call you then to confirm your insurance and lock in your child's free spot.</span><span class="es">Elige cualquier hora abajo. Nuestro equipo te llamará a esa hora para confirmar tu seguro y asegurar el cupo gratis de tu hijo.</span><span class="cr">Chwazi nenpòt lè anba a. Ekip nou an ap rele ou nan lè sa a pou konfime asirans ou epi lokè plas gratis pitit ou.</span></p>
+      <div id="calendlyEmbed" style="min-width:320px;width:100%;height:680px;margin-top:18px"></div>
     </div>
   </div>
 </section>
@@ -1041,7 +1046,28 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
     }
     form.style.display = 'none';
     success.style.display = 'block';
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Initialize Calendly inline widget with parent name prefilled from the form
+    const calendlyUrl = 'https://calendly.com/rachel-badilla-therapyhgt/30min';
+    const parentName = (data.parent_name || '').trim();
+    const url = calendlyUrl + (parentName ? ('?name=' + encodeURIComponent(parentName)) : '');
+    const initCalendly = () => {
+      if (typeof Calendly !== 'undefined' && document.getElementById('calendlyEmbed')) {
+        try {
+          Calendly.initInlineWidget({
+            url: url,
+            parentElement: document.getElementById('calendlyEmbed'),
+            prefill: { name: parentName },
+            utm: { utmSource: 'landing-page', utmMedium: 'form', utmCampaign: 'life-skills-summer-thrills' }
+          });
+        } catch(err) { console.warn('Calendly init failed:', err); }
+      } else {
+        setTimeout(initCalendly, 200);
+      }
+    };
+    initCalendly();
+
+    success.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 </script>
 </body>

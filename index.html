@@ -764,70 +764,10 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
     <div class="section-title reveal">
       <span class="eyebrow" style="color:rgba(255,255,255,.85)"><span class="en">Apply Today</span><span class="es">Aplica Hoy</span><span class="cr">Aplike Jodi a</span></span>
       <h2><span class="en">Reserve your child's free spot.</span><span class="es">Reserva el cupo gratis de tu hijo.</span><span class="cr">Rezève plas gratis pitit ou.</span></h2>
-      <p class="lead-sub"><span class="en">Takes 2 minutes. We call you back the same day to confirm your insurance and get your child enrolled.</span><span class="es">2 minutos. Te llamamos el mismo día para confirmar tu seguro e inscribir a tu hijo.</span><span class="cr">Pran 2 minit. N ap rele ou menm jou a pou konfime asirans ou epi enskri pitit ou.</span></p>
+      <p class="lead-sub"><span class="en">Pick a time below. Our team will call you to confirm your insurance and lock in your child's free spot.</span><span class="es">Elige una hora abajo. Nuestro equipo te llamará para confirmar tu seguro y asegurar el cupo gratis de tu hijo.</span><span class="cr">Chwazi yon lè anba a. Ekip nou an ap rele ou pou konfime asirans ou epi lokè plas gratis pitit ou.</span></p>
     </div>
 
-    <form class="lead-form reveal" id="leadForm" novalidate>
-      <div class="row">
-        <div class="field">
-          <label><span class="en">Parent / Guardian Name</span><span class="es">Nombre del Padre / Tutor</span><span class="cr">Non Paran / Gadyen</span></label>
-          <input type="text" name="parent_name" required autocomplete="name" />
-        </div>
-        <div class="field">
-          <label><span class="en">Phone Number</span><span class="es">Teléfono</span><span class="cr">Nimewo Telefòn</span></label>
-          <input type="tel" name="phone" required autocomplete="tel" placeholder="(407) 555-0123" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="field">
-          <label><span class="en">Child's Age</span><span class="es">Edad del Niño</span><span class="cr">Laj Pitit la</span></label>
-          <select name="child_age" required>
-            <option value="" data-en="Select age" data-es="Seleccionar edad" data-cr="Chwazi laj">Select age</option>
-            <option>5</option><option>6</option><option>7</option><option>8</option>
-            <option>9</option><option>10</option><option>11</option><option>12</option>
-            <option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
-          </select>
-        </div>
-        <div class="field">
-          <label><span class="en">How many children?</span><span class="es">¿Cuántos niños?</span><span class="cr">Konbyen timoun?</span></label>
-          <select name="num_children" required>
-            <option value="" data-en="Select" data-es="Seleccionar" data-cr="Chwazi">Select</option>
-            <option>1</option><option>2</option><option>3</option><option>4+</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label><span class="en">Insurance Plan</span><span class="es">Plan de Seguro</span><span class="cr">Plan Asirans</span></label>
-        <select name="insurance" id="insuranceSelect" required>
-          <option value="" data-en="Select your insurance" data-es="Selecciona tu seguro" data-cr="Chwazi asirans ou">Select your insurance</option>
-          <option value="Florida Medicaid">Florida Medicaid</option>
-          <option value="Sunshine">Sunshine</option>
-          <option value="CMS">CMS</option>
-          <option value="Community Care Plan">Community Care Plan</option>
-          <option value="Aetna">Aetna</option>
-          <option value="other" data-en="Other / Not sure" data-es="Otro / No estoy seguro" data-cr="Lòt / Pa sèten">Other / Not sure</option>
-          <option value="none" data-en="No insurance" data-es="Sin seguro" data-cr="Pa gen asirans">No insurance</option>
-        </select>
-      </div>
-      <div class="field" id="insuranceOtherWrap" style="display:none">
-        <label><span class="en">Which insurance do you have? (Optional)</span><span class="es">¿Qué seguro tienes? (Opcional)</span><span class="cr">Ki asirans ou genyen? (Opsyonèl)</span></label>
-        <input type="text" name="insurance_other" autocomplete="off" placeholder="" />
-      </div>
-      <button type="submit" class="btn btn-primary btn-lg submit">
-        <span class="en">Reserve My Free Spot →</span><span class="es">Reservar el Cupo Gratis →</span><span class="cr">Rezève Plas Gratis Mwen →</span>
-      </button>
-      <p class="disclaimer">
-        <span class="en">By submitting, you agree to be contacted by phone and SMS by Heal Grow Thrive about your application. Your information stays private and is never shared.</span>
-        <span class="es">Al enviar, aceptas ser contactado por teléfono y SMS por Heal Grow Thrive sobre tu solicitud. Tu información es privada y no se comparte.</span>
-        <span class="cr">Lè ou voye, ou dakò pou Heal Grow Thrive kontakte ou pa telefòn ak SMS sou aplikasyon ou. Enfòmasyon ou rete prive epi pa janm pataje.</span>
-      </p>
-    </form>
-
-    <div class="form-success" id="formSuccess" style="display:none">
-      <div class="check">✓</div>
-      <h3><span class="en">Almost done — pick a time for your call</span><span class="es">Ya casi — elige una hora para tu llamada</span><span class="cr">Prèske fini — chwazi yon lè pou apèl ou</span></h3>
-      <p><span class="en">Choose any time below. Our team will call you then to confirm your insurance and lock in your child's free spot.</span><span class="es">Elige cualquier hora abajo. Nuestro equipo te llamará a esa hora para confirmar tu seguro y asegurar el cupo gratis de tu hijo.</span><span class="cr">Chwazi nenpòt lè anba a. Ekip nou an ap rele ou nan lè sa a pou konfime asirans ou epi lokè plas gratis pitit ou.</span></p>
-      <div id="calendlyEmbed" style="min-width:320px;width:100%;height:680px;margin-top:18px"></div>
+    <div id="calendlyEmbed" class="reveal" style="min-width:320px;width:100%;height:760px"></div>
     </div>
   </div>
 </section>
@@ -904,12 +844,36 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
     }
   });
 
-  // ── Pixel event: Form_Started — fires once when parent focuses any field in the apply form ──
-  let formStartFired = false;
-  document.getElementById('leadForm').addEventListener('focusin', () => {
-    if (!formStartFired) {
-      formStartFired = true;
-      fbqTrack('Form_Started');
+  // ── Calendly inline widget — loads in the apply section + fires Meta Pixel events ──
+  const calendlyContainer = document.getElementById('calendlyEmbed');
+  const initCalendly = () => {
+    if (!calendlyContainer) return;
+    if (typeof Calendly === 'undefined') { setTimeout(initCalendly, 200); return; }
+    try {
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/rachel-badilla-therapyhgt/30min',
+        parentElement: calendlyContainer,
+        utm: { utmSource: 'landing-page', utmMedium: 'inline', utmCampaign: 'life-skills-summer-thrills' }
+      });
+    } catch(err) { console.warn('Calendly init failed:', err); }
+  };
+  initCalendly();
+
+  // ── Calendly event hooks → Meta Pixel ──
+  window.addEventListener('message', (e) => {
+    if (typeof e.origin !== 'string' || e.origin.indexOf('calendly.com') === -1) return;
+    const evt = e.data && e.data.event;
+    if (evt === 'calendly.profile_page_viewed' || evt === 'calendly.event_type_viewed') {
+      fbqTrack('Calendly_Opened');
+    } else if (evt === 'calendly.date_and_time_selected') {
+      fbqTrack('Calendly_TimeSelected');
+    } else if (evt === 'calendly.event_scheduled') {
+      // Booking confirmed — fire the Meta Pixel Lead event
+      if (typeof fbq === 'function') {
+        try { fbq('track', 'Lead', { content_name: 'Life Skills Summer Thrills', content_category: 'Camp Booking' }); }
+        catch(err) { console.warn('Lead event failed:', err); }
+      }
+      fbqTrack('Calendly_Booked');
     }
   });
   try {
@@ -1017,58 +981,6 @@ src="https://www.facebook.com/tr?id=1015526681082653&ev=PageView&noscript=1"
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // ── Lead form ──
-  const FORM_ENDPOINT = ''; // <-- TODO: paste real endpoint here
-
-  // Show "which insurance" text field when user picks Other/None
-  const insSel = document.getElementById('insuranceSelect');
-  const insOther = document.getElementById('insuranceOtherWrap');
-  insSel.addEventListener('change', () => {
-    const v = insSel.value;
-    insOther.style.display = (v === 'other' || v === 'none') ? 'block' : 'none';
-  });
-
-  const form = document.getElementById('leadForm');
-  const success = document.getElementById('formSuccess');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.source_page = 'life-skills-summer-thrills-winter-park';
-    data.submitted_at = new Date().toISOString();
-    if (FORM_ENDPOINT) {
-      try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) }); }
-      catch(err) { console.warn('Form submit failed:', err); }
-    } else { console.log('Lead captured (no endpoint configured):', data); }
-    // Meta Pixel — fire Lead event on successful submission
-    if (typeof fbq === 'function') {
-      try { fbq('track', 'Lead', { content_name: 'Life Skills Summer Thrills', content_category: 'Camp Application' }); }
-      catch(err) { console.warn('Meta Pixel Lead event failed:', err); }
-    }
-    form.style.display = 'none';
-    success.style.display = 'block';
-
-    // Initialize Calendly inline widget with parent name prefilled from the form
-    const calendlyUrl = 'https://calendly.com/rachel-badilla-therapyhgt/30min';
-    const parentName = (data.parent_name || '').trim();
-    const url = calendlyUrl + (parentName ? ('?name=' + encodeURIComponent(parentName)) : '');
-    const initCalendly = () => {
-      if (typeof Calendly !== 'undefined' && document.getElementById('calendlyEmbed')) {
-        try {
-          Calendly.initInlineWidget({
-            url: url,
-            parentElement: document.getElementById('calendlyEmbed'),
-            prefill: { name: parentName },
-            utm: { utmSource: 'landing-page', utmMedium: 'form', utmCampaign: 'life-skills-summer-thrills' }
-          });
-        } catch(err) { console.warn('Calendly init failed:', err); }
-      } else {
-        setTimeout(initCalendly, 200);
-      }
-    };
-    initCalendly();
-
-    success.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 </script>
 </body>
 </html>

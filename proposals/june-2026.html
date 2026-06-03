@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Heal Grow Thrive · June 2026 Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --peach: #F0C5B5;
+    --blue: #A8B8D8;
+    --ink: #0F1424;
+    --ink-soft: #555E73;
+    --ink-mute: #8A91A3;
+    --bg: #FAFAF7;
+    --line: #ECEAE4;
+    --line-strong: #1A1F2E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  .gradient-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--peach) 0%, var(--blue) 100%);
+  }
+  .doc {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 72px 72px 60px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .doc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+  }
+  .mark {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .mark span {
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-left: 8px;
+  }
+  .doc-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Cover */
+  .cover { margin-bottom: 64px; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    letter-spacing: -0.01em;
+  }
+  .for-line {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+  }
+  .for-line strong { color: var(--ink); font-weight: 600; letter-spacing: 0; }
+
+  /* Sections */
+  section.block {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+  }
+  section.block .eyebrow { margin-bottom: 24px; }
+  .lede {
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    margin-bottom: 32px;
+    font-weight: 400;
+    max-width: 560px;
+  }
+
+  /* Locations chip row */
+  .locations {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    padding: 8px 14px 8px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .chip::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--peach);
+  }
+  .chip.b::before { background: var(--blue); }
+
+  /* Scope list */
+  ol.scope {
+    list-style: none;
+    counter-reset: scope;
+    padding: 0;
+    margin: 0;
+  }
+  ol.scope li {
+    counter-increment: scope;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  ol.scope li:first-child { border-top: 1px solid var(--line-strong); }
+  ol.scope li:last-child { border-bottom: 1px solid var(--line-strong); }
+  ol.scope li::before {
+    content: counter(scope, decimal-leading-zero);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+  }
+  ol.scope li .title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  ol.scope li .body {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* Investment */
+  .invest {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+  }
+  .invest .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 12px;
+  }
+  .invest .price {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .invest .price .currency {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink-mute);
+    margin-right: 6px;
+    vertical-align: 24px;
+    letter-spacing: -0.02em;
+  }
+  .invest .meta {
+    text-align: right;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 240px;
+  }
+  .invest .meta b { color: var(--ink); font-weight: 600; }
+
+  /* Spend line */
+  .spend {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .spend .key {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .spend .value {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .spend .value b { font-weight: 700; }
+
+  /* Approval */
+  .approve {
+    margin-top: 56px;
+    padding: 32px 36px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .approve .ask {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    max-width: 440px;
+  }
+  .approve .ask b { font-weight: 700; }
+  .approve .timing {
+    flex: 0 0 auto;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  @media (max-width: 720px) {
+    .doc { padding: 40px 24px; border: none; }
+    .doc-head { margin-bottom: 40px; padding-bottom: 18px; }
+    h1 { font-size: 36px; }
+    .subtitle { font-size: 16px; }
+    section.block { padding: 32px 0; }
+    .lede { font-size: 17px; }
+    .invest { flex-direction: column; align-items: flex-start; }
+    .invest .price { font-size: 52px; }
+    .invest .meta { text-align: left; max-width: none; }
+    .approve { flex-direction: column; align-items: flex-start; padding: 24px; }
+    .approve .timing { text-align: left; }
+    ol.scope li { grid-template-columns: 40px 1fr; gap: 16px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .doc { border: none; padding: 32px; max-width: none; }
+    .approve { background: var(--ink) !important; color: #fff !important; }
+    .chip::before { background: var(--peach) !important; }
+    .chip.b::before { background: var(--blue) !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="gradient-bar"></div>
+<main class="doc">
+
+  <div class="doc-head">
+    <div class="mark">INVEXA GROWTH<span>// Patient Acquisition</span></div>
+    <div class="doc-tag">Proposal · June 2026</div>
+  </div>
+
+  <section class="cover">
+    <div class="eyebrow">Month 2 · Engagement Renewal</div>
+    <h1>Heal Grow Thrive</h1>
+    <div class="subtitle">Two-county launch — Miami-Dade &amp; Broward.</div>
+    <div class="for-line">Prepared for <strong>Rachel Badilla</strong> · Heal Grow Thrive</div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">Scope of work</div>
+    <p class="lede">Two new locations going live this month. Both campaigns built, both agents trained, and the landing page expanded to support them — end-to-end.</p>
+
+    <div class="locations">
+      <span class="chip">Miami-Dade County</span>
+      <span class="chip b">Broward County</span>
+    </div>
+
+    <ol class="scope">
+      <li>
+        <div>
+          <div class="title">Two Meta campaigns built and launched</div>
+          <div class="body">One targeted to Miami-Dade, one to Broward. Audience targeting, creative assets, and ad copy built from scratch for each county.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Landing page expansion</div>
+          <div class="body">Dedicated Miami-Dade and Broward sections added to the existing landing page, with location-specific copy and visuals.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Two new Calendly booking schedules</div>
+          <div class="body">A separate booking flow per location so parents in each county schedule with the right local team.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Two new AI agents trained</div>
+          <div class="body">One Virtual Scale agent per location, trained on local insurance, language mix, and routing.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Daily campaign management &amp; optimization</div>
+          <div class="body">Performance monitored daily. Creative and audience iterations made as the data comes in.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Lead qualification, tagging &amp; routing</div>
+          <div class="body">Inbound leads qualified by the bot, tagged in the CRM, and routed to the right specialist for follow-up.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="title">Weekly performance reporting</div>
+          <div class="body">A clean report each week — spend, leads, qualified leads, booked calls, cost per booking.</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="spend">
+    <div class="key">Ad Spend</div>
+    <div class="value"><b>$50</b> per day, per campaign</div>
+  </section>
+
+  <section class="invest">
+    <div>
+      <div class="label">Investment</div>
+      <div class="price"><span class="currency">$</span>3,500</div>
+    </div>
+    <div class="meta">
+      <b>Same as Month 1.</b><br/>
+      Covers strategy, builds, agent training, and daily management.
+    </div>
+  </section>
+
+  <div class="approve">
+    <div class="ask">Approve to proceed and the new campaigns launch within <b>48 hours</b>.</div>
+    <div class="timing">Ready to ship</div>
+  </div>
+
+  <footer>
+    <div>INVEXA Growth</div>
+    <div>invexagrowth.com</div>
+  </footer>
+
+</main>
+</body>
+</html>

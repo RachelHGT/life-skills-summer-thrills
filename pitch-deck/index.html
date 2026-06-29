@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camp Growth System — INVEXA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0F14;--bg2:#0E1318;
+  --blue:#1e7bbd;--blue-lt:#4a9ad4;--blue-dk:#155d8f;
+  --green:#6cafab;--green-lt:#8ac5c1;--green-dk:#4e8a87;
+  --cream:#E8EDF2;--white:#FFF;
+  --muted:rgba(232,237,242,0.80);
+  --border:rgba(30,123,189,0.22);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+}
+html,body{width:100%;height:100%;background:var(--bg);color:var(--cream);font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+
+.deck{position:relative;width:100vw;height:100vh}
+canvas#bg{position:fixed;inset:0;pointer-events:none;opacity:0.40}
+
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:52px 68px;opacity:0;pointer-events:none;
+  transition:opacity 0.6s ease;overflow-y:auto;overflow-x:hidden;
+}
+.slide.active{opacity:1;pointer-events:all}
+.slide::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 80% 15%,rgba(30,123,189,0.07) 0%,transparent 65%),
+             radial-gradient(ellipse 50% 50% at 10% 85%,rgba(108,175,171,0.04) 0%,transparent 60%);
+  pointer-events:none
+}
+
+.slide.active .ani-1{animation:up .55s .08s both}
+.slide.active .ani-2{animation:up .55s .18s both}
+.slide.active .ani-3{animation:up .55s .28s both}
+.slide.active .ani-4{animation:up .55s .38s both}
+.slide.active .ani-5{animation:up .55s .48s both}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.lbl{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.lbl::before{content:'';width:28px;height:1px;background:var(--blue)}
+
+.h1{font-family:var(--serif);font-size:clamp(34px,5.2vw,70px);font-weight:600;line-height:1.08;color:var(--white);text-align:center;max-width:880px;letter-spacing:-.01em}
+.h1 em{font-style:italic;color:var(--blue-lt)}
+.h1 .acc{color:var(--blue)}
+.h2{font-family:var(--serif);font-size:clamp(22px,2.8vw,40px);font-weight:600;line-height:1.15;color:var(--white);text-align:center;max-width:800px}
+.h2 em{font-style:italic;color:var(--blue-lt)}
+
+.body{font-size:clamp(14px,1.4vw,17px);font-weight:300;line-height:1.75;color:var(--cream);text-align:center;max-width:680px;margin-top:18px}
+.body strong{color:var(--white);font-weight:600}
+
+.line{width:44px;height:1px;background:var(--blue);margin:20px auto;opacity:.45}
+.tf{position:absolute;bottom:22px;right:34px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(30,123,189,.28)}
+
+/* NAV */
+.nav{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;z-index:200}
+.nb{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:rgba(10,15,20,.88);color:var(--blue);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(8px)}
+.nb:hover{border-color:var(--blue);background:rgba(30,123,189,.12)}
+.nb svg{width:13px;height:13px}
+.dots{display:flex;gap:5px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--blue-dk);cursor:pointer;transition:all .25s}
+.dot.active{background:var(--blue);width:18px;border-radius:3px}
+.snum{position:fixed;top:24px;right:32px;font-size:10px;letter-spacing:.12em;color:var(--blue-dk);z-index:200}
+
+/* -- COVER -- */
+.cover-super{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:26px;text-align:center}
+.cover-title{font-family:var(--serif);font-size:clamp(42px,6.8vw,94px);font-weight:300;line-height:1.06;text-align:center;color:var(--white);max-width:940px}
+.cover-title strong{font-weight:700}
+.cover-title .t{color:var(--blue)}
+.cover-title .g{color:var(--green)}
+.badge{margin-top:28px;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:40px;padding:9px 22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.bdot{width:5px;height:5px;border-radius:50%;background:var(--green);display:inline-block}
+
+/* -- MARKET STATS -- */
+.mkt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;width:100%;max-width:960px}
+.mkt-card{border:1px solid var(--border);border-radius:12px;padding:22px 16px;text-align:center;background:rgba(30,123,189,.05)}
+.mkt-num{font-family:var(--serif);font-size:clamp(28px,3.8vw,50px);font-weight:700;color:var(--blue);line-height:1;margin-bottom:8px}
+.mkt-label{font-size:15px;color:var(--cream);line-height:1.45}
+.mkt-sub{font-size:13px;color:var(--blue-dk);margin-top:5px;letter-spacing:.06em}
+.mkt-pill-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:center}
+.mpill{border:1px solid var(--border);border-radius:20px;padding:7px 14px;font-size:14px;color:var(--cream)}
+.mpill strong{color:var(--blue)}
+
+/* -- COMMISSION / OPPORTUNITY BOX -- */
+.comm-box{background:rgba(30,123,189,.08);border:1px solid var(--blue);border-radius:14px;padding:28px 36px;text-align:center;margin-top:20px}
+.comm-math{display:flex;align-items:center;gap:20px;justify-content:center;flex-wrap:wrap}
+.comm-item{text-align:center}
+.comm-num{font-family:var(--serif);font-size:clamp(32px,4.5vw,58px);font-weight:700;color:var(--blue);line-height:1}
+.comm-lbl{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-dk);margin-top:6px}
+.comm-op{font-family:var(--serif);font-size:48px;color:rgba(30,123,189,.3)}
+.comm-result .comm-num{color:var(--white);font-size:clamp(40px,5.5vw,72px)}
+.comm-result .comm-lbl{color:var(--green)}
+
+/* -- PROBLEM -- */
+.prob-split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;width:100%;max-width:860px}
+.prob-side{border:1px solid var(--border);border-radius:12px;padding:26px 22px}
+.prob-side.bad{border-color:rgba(239,68,68,.28);background:rgba(239,68,68,.04)}
+.prob-side.good{border-color:rgba(108,175,171,.4);background:rgba(108,175,171,.07)}
+.prob-tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.prob-tag.bad{color:#F87171}
+.prob-tag.good{color:var(--green)}
+.prob-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--white);margin-bottom:10px}
+.prob-desc{font-size:15px;line-height:1.65;color:var(--cream)}
+
+/* -- FUNNEL -- */
+.funnel-wrap{display:flex;align-items:stretch;gap:0;margin-top:30px;width:100%;max-width:980px}
+.f-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative}
+.f-step::after{content:'\2192';position:absolute;right:-12px;top:28%;color:var(--blue);font-size:18px;z-index:2}
+.f-step:last-child::after{display:none}
+.f-box{width:100%;background:rgba(30,123,189,.06);border:1px solid var(--border);border-radius:10px;padding:20px 14px;text-align:center;flex:1}
+.f-icon{font-size:28px;margin-bottom:10px;display:block}
+.f-title{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.f-desc{font-size:14px;color:var(--cream);line-height:1.6}
+.f-final .f-box{border-color:var(--green);background:rgba(108,175,171,.12)}
+
+/* -- MATH / ROI -- */
+.math-row{display:flex;align-items:center;gap:0;margin-top:32px;width:100%;max-width:900px}
+.math-stat{flex:1;text-align:center;padding:0 12px}
+.math-num{font-family:var(--serif);font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.math-lbl{font-size:13px;letter-spacing:.10em;text-transform:uppercase;color:var(--blue-dk);margin-top:8px}
+.math-op{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);color:rgba(30,123,189,.3);padding:0 4px;align-self:center}
+.math-result{flex:1.5;text-align:center;padding:24px 20px;background:rgba(108,175,171,.08);border:1px solid var(--green);border-radius:14px}
+.math-result .math-num{font-size:clamp(44px,6vw,80px);color:var(--white)}
+.math-result .math-lbl{color:var(--green)}
+.math-bottom{margin-top:18px;background:rgba(30,123,189,.08);border:1px solid var(--border);border-radius:10px;padding:16px 24px;text-align:center;max-width:640px}
+.math-bottom-big{font-family:var(--serif);font-size:clamp(20px,2.5vw,30px);font-weight:700;color:var(--green);margin-bottom:4px}
+.math-bottom-sub{font-size:14px;color:var(--cream)}
+
+/* -- ARCH GRID / WHAT'S INCLUDED -- */
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:26px;width:100%;max-width:920px}
+.arch-card{border:1px solid var(--border);border-radius:10px;padding:20px 16px;background:rgba(30,123,189,.05);position:relative;overflow:hidden}
+.arch-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--green),transparent)}
+.arch-num{font-family:var(--serif);font-size:34px;font-weight:700;color:rgba(30,123,189,.15);position:absolute;top:10px;right:14px;line-height:1}
+.arch-icon{font-size:20px;margin-bottom:8px;display:block}
+.arch-name{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.arch-desc{font-size:14px;color:var(--cream);line-height:1.6}
+
+/* -- COST COMPARISON -- */
+.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px;width:100%;max-width:920px;align-items:start}
+.cost-col-title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.cost-col-title.red{color:#F87171}
+.cost-col-title.grn{color:var(--green)}
+.cost-item{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(30,123,189,.08);gap:12px}
+.cost-item:last-child{border-bottom:none}
+.cost-name{font-size:15px;color:var(--cream)}
+.cost-val{font-size:15px;font-weight:600;white-space:nowrap}
+.cost-val.red{color:#F87171}
+.cost-val.grn{color:var(--green)}
+.cost-total-row{margin-top:10px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cost-total-label{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--cream)}
+.cost-total-val{font-family:var(--serif);font-size:22px;font-weight:700}
+.cost-total-val.red{color:#F87171}
+.cost-total-val.grn{color:var(--green)}
+.cost-save{margin-top:14px;text-align:center;background:rgba(108,175,171,.10);border:1px solid var(--green);border-radius:8px;padding:11px 18px;font-size:15px;color:var(--green);font-weight:600;letter-spacing:.03em}
+
+/* -- PRICE BOXES -- */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;width:100%;max-width:680px}
+.pbox{border:1px solid var(--border);border-radius:14px;padding:26px 20px;text-align:center;background:rgba(30,123,189,.05);position:relative}
+.pbox.feat{border-color:var(--blue);background:rgba(30,123,189,.10)}
+.pbox-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:10px}
+.pbox.feat .pbox-tag{color:var(--blue)}
+.pbox-amt{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:700;color:var(--white);line-height:1}
+.pbox-period{font-size:15px;color:var(--cream);margin-top:9px;line-height:1.5}
+.pbox-note{font-size:14px;color:var(--green);margin-top:12px;font-style:italic}
+.pbox-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.invest-note{margin-top:22px;text-align:center;max-width:680px;font-size:15px;color:var(--green);font-weight:600;font-style:italic;line-height:1.6}
+
+/* -- GUARANTEE -- */
+.guar-box{max-width:840px;margin-top:24px;border:1px solid var(--green);border-radius:16px;padding:36px 44px;background:rgba(108,175,171,.06);position:relative;text-align:center}
+.guar-icon{font-size:38px;margin-bottom:14px;display:block}
+.guar-text{font-family:var(--serif);font-size:clamp(18px,2.3vw,27px);font-weight:400;font-style:italic;line-height:1.5;color:var(--white)}
+.guar-pills{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.gpill{border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:14px;color:var(--green);display:flex;align-items:center;gap:6px}
+.gpill::before{content:'\2713';color:var(--green);font-weight:700}
+
+/* -- WHY TRUFACE -- */
+.why-wrap{display:flex;flex-direction:column;gap:16px;margin-top:24px;width:100%;max-width:760px}
+.why-point{display:flex;align-items:flex-start;gap:14px}
+.why-icon{width:40px;height:40px;border-radius:10px;background:rgba(30,123,189,.10);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px}
+.why-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.why-desc{font-size:15px;color:var(--cream);line-height:1.55}
+
+/* -- TIMELINE -- */
+.tl-wrap{display:flex;align-items:flex-start;margin-top:32px;width:100%;max-width:940px;position:relative}
+.tl-wrap::before{content:'';position:absolute;top:22px;left:calc(100%/10);right:calc(100%/10);height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),var(--border),transparent)}
+.tl-step{flex:1;text-align:center;position:relative;z-index:1}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:14px}
+.tl-day{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.tl-label{font-size:15px;color:var(--cream);line-height:1.5;padding:0 6px}
+
+.rpill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--cream);margin-top:16px}
+.rpdot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+@media(max-width:768px){
+  .slide{padding:32px 20px}
+  .prob-split,.cost-grid,.price-grid,.arch-grid,.mkt-grid{grid-template-columns:1fr}
+  .funnel-wrap{flex-direction:column;gap:10px}
+  .f-step::after{display:none}
+  .math-row{flex-direction:column;gap:16px}
+  .math-op{display:none}
+  .tl-wrap::before{display:none}
+  .tl-wrap{flex-direction:column;gap:14px}
+}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="deck">
+
+<!-- == SLIDE 1: COVER == -->
+<div class="slide active" id="s0">
+  <div class="cover-super ani-1">INVEXA presents</div>
+  <div class="cover-title ani-2">
+    Camp Growth System<br>
+    <strong>for <span class="t">Heal</span> <span class="g">Grow</span> <span class="t">Thrive</span></strong>
+  </div>
+  <div class="badge ani-3"><span class="bdot"></span>Prepared for Rachel Badilla, LCSW — Heal Grow Thrive</div>
+  <div class="tf">INVEXA — 2026</div>
+</div>
+
+<!-- == SLIDE 2: MENTAL HEALTH LANDSCAPE == -->
+<div class="slide" id="s1">
+  <div class="lbl ani-1">The Landscape — Children's Mental Health 2025</div>
+  <div class="h2 ani-2">What the data is telling us.<br><em>And what it means for your camp.</em></div>
+  <div class="mkt-grid ani-3">
+    <div class="mkt-card">
+      <div class="mkt-num">1 in 5</div>
+      <div class="mkt-label">Children ages 5-17 have a diagnosable mental health disorder</div>
+      <div class="mkt-sub">CDC, 2024</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-num">60%</div>
+      <div class="mkt-label">Of youth with depression don't receive any treatment</div>
+      <div class="mkt-sub">Mental Health America</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-num">$5.7B</div>
+      <div class="mkt-label">Estimated US children's behavioral health market</div>
+      <div class="mkt-sub">Growing 8%+ annually</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-num">4.4M</div>
+      <div class="mkt-label">Children currently diagnosed with anxiety in the US</div>
+      <div class="mkt-sub">Ages 3-17, rising year over year</div>
+    </div>
+  </div>
+  <div class="mkt-pill-row ani-4">
+    <div class="mpill">South Florida has one of the <strong>highest unmet needs</strong></div>
+    <div class="mpill">Parents are <strong>actively searching for solutions</strong></div>
+    <div class="mpill">Summer camps with <strong>therapeutic value are booming</strong></div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 3: THE OPPORTUNITY == -->
+<div class="slide" id="s2">
+  <div class="lbl ani-1">The Opportunity — What You've Already Built</div>
+  <div class="h2 ani-2">From 35 kids to 120.<br><em>Now imagine what's next.</em></div>
+  <div class="comm-box ani-3">
+    <div class="comm-math">
+      <div class="comm-item">
+        <div class="comm-num">$150</div>
+        <div class="comm-lbl">Medicaid rate<br>per child per day</div>
+      </div>
+      <div class="comm-op">&times;</div>
+      <div class="comm-item">
+        <div class="comm-num">30</div>
+        <div class="comm-lbl">Kids per location</div>
+      </div>
+      <div class="comm-op">&times;</div>
+      <div class="comm-item">
+        <div class="comm-num">45</div>
+        <div class="comm-lbl">Days<br>(9-week camp)</div>
+      </div>
+      <div class="comm-op">=</div>
+      <div class="comm-item comm-result">
+        <div class="comm-num">$202K</div>
+        <div class="comm-lbl">Per location<br>per summer</div>
+      </div>
+    </div>
+  </div>
+  <div class="body ani-4" style="margin-top:18px">
+    You grew organically from <strong>35 to 120 kids</strong> across 3 locations with zero marketing.<br>Now you're launching <strong>Winter Park</strong> — affluent area, hybrid Medicaid + private-pay model — and planning <strong>a school</strong>.
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 4: THE PROBLEM == -->
+<div class="slide" id="s3">
+  <div class="lbl ani-1">The Challenge — Winter Park in 4 Weeks</div>
+  <div class="h2 ani-2">New city. New community. No existing network.<br><em>You need 30 kids in 28 days.</em></div>
+  <div class="prob-split ani-3">
+    <div class="prob-side bad">
+      <div class="prob-tag bad">❌ How it's been done — grassroots only</div>
+      <div class="prob-title">Organic growth takes years</div>
+      <div class="prob-desc">You built 3 locations over 4 years through word-of-mouth, church partnerships, and community trust. That works — but it took years. Winter Park is a new market with zero brand recognition. Flyers and referrals won't fill 30 seats in 4 weeks in a city where nobody knows you yet.</div>
+    </div>
+    <div class="prob-side good">
+      <div class="prob-tag good">✓ Grassroots + digital acceleration</div>
+      <div class="prob-title">Fill the camp in weeks, not years</div>
+      <div class="prob-desc">Keep the community partnerships and church connection that got you the contract. Layer on a digital system that reaches every parent in Winter Park and surrounding areas searching for summer camps, after-school programs, and youth mental health — and converts them into enrolled families before the first day of camp.</div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 5: HOW THE SYSTEM WORKS == -->
+<div class="slide" id="s4">
+  <div class="lbl ani-1">How The System Works</div>
+  <div class="h2 ani-2">Five stages. One system built<br><em>to fill every camp seat.</em></div>
+  <div class="funnel-wrap ani-3">
+    <div class="f-step">
+      <div class="f-box">
+        <span class="f-icon">&#128269;</span>
+        <div class="f-title">Discovery</div>
+        <div class="f-desc">Audit current digital presence, identify target parent demographics, analyze competition in South Florida youth mental health space</div>
+      </div>
+    </div>
+    <div class="f-step">
+      <div class="f-box">
+        <span class="f-icon">&#127916;</span>
+        <div class="f-title">Content + Ads</div>
+        <div class="f-desc">Compelling video/photo content showcasing camp activities, field trips, and impact stories. Meta ads targeting parents in Miami-Dade & Broward</div>
+      </div>
+    </div>
+    <div class="f-step">
+      <div class="f-box">
+        <span class="f-icon">&#127760;</span>
+        <div class="f-title">Landing Page</div>
+        <div class="f-desc">Camp-specific enrollment page with program details, schedule, testimonials, and easy registration. Mobile-first, trust-building design</div>
+      </div>
+    </div>
+    <div class="f-step">
+      <div class="f-box">
+        <span class="f-icon">&#129302;</span>
+        <div class="f-title">Automated Follow-up</div>
+        <div class="f-desc">SMS/email sequences that nurture interested parents, answer common questions, share camp highlights, and drive enrollment</div>
+      </div>
+    </div>
+    <div class="f-step f-final">
+      <div class="f-box">
+        <span class="f-icon">&#9989;</span>
+        <div class="f-title">Enrollment</div>
+        <div class="f-desc">Qualified families register directly. Waitlist system for overflow. Automated confirmations and pre-camp communication</div>
+      </div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 7: WHAT'S INCLUDED == -->
+<div class="slide" id="s6">
+  <div class="lbl ani-1">What's Included</div>
+  <div class="h2 ani-2">Everything built. Nothing to coordinate.</div>
+  <div class="arch-grid ani-3">
+    <div class="arch-card">
+      <span class="arch-num">01</span>
+      <span class="arch-icon">&#128241;</span>
+      <div class="arch-name">Meta Ads Management</div>
+      <div class="arch-desc">Targeted campaigns reaching parents in Miami-Dade & Broward. Lookalike audiences, retargeting, and enrollment-focused optimization.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">02</span>
+      <span class="arch-icon">&#127760;</span>
+      <div class="arch-name">Camp Landing Page</div>
+      <div class="arch-desc">Custom enrollment page with program info, schedule, pricing, FAQs, and online registration. Designed to convert visitors to enrollments.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">03</span>
+      <span class="arch-icon">&#128450;</span>
+      <div class="arch-name">CRM + Automation</div>
+      <div class="arch-desc">Parent inquiry management, automated SMS/email follow-ups, enrollment tracking, and waitlist management. Everything in one place.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">04</span>
+      <span class="arch-icon">&#127912;</span>
+      <div class="arch-name">Ad Creatives</div>
+      <div class="arch-desc">Static ad designs, carousel graphics, and copy written for parents. A/B tested creatives optimized for enrollment conversions.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">05</span>
+      <span class="arch-icon">&#128202;</span>
+      <div class="arch-name">Analytics + Reporting</div>
+      <div class="arch-desc">Weekly enrollment metrics, ad performance, cost per enrollment, and optimization recommendations. Data-driven decisions every week.</div>
+    </div>
+    <div class="arch-card" style="border-style:dashed;opacity:0.75">
+      <span class="arch-num">+</span>
+      <span class="arch-icon">&#127916;</span>
+      <div class="arch-name">Content Creation (Add-On)</div>
+      <div class="arch-desc">Professional video/photo production of camp activities, field trips, and testimonials. Available as an optional add-on for an additional fee.</div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 8: COST COMPARISON == -->
+<div class="slide" id="s7">
+  <div class="lbl ani-1">The Real Cost — Hiring Separately vs. INVEXA</div>
+  <div class="h2 ani-2">What it actually costs<br><em>to build this yourself.</em></div>
+  <div class="cost-grid ani-3">
+    <div>
+      <div class="cost-col-title red">❌ Hiring each piece separately</div>
+      <div class="cost-item"><span class="cost-name">Meta ads specialist</span><span class="cost-val red">$1,500–$2,500/mo</span></div>
+      <div class="cost-item"><span class="cost-name">Landing page (design + development)</span><span class="cost-val red">$2,000–$5,000</span></div>
+      <div class="cost-item"><span class="cost-name">CRM setup + automation</span><span class="cost-val red">$1,000–$3,000</span></div>
+      <div class="cost-item"><span class="cost-name">Email/SMS marketing platform</span><span class="cost-val red">$300–$800/mo</span></div>
+      <div class="cost-item"><span class="cost-name">Graphic designer for ads</span><span class="cost-val red">$500–$1,500/mo</span></div>
+      <div class="cost-item"><span class="cost-name">Flyers & print materials</span><span class="cost-val red">$500–$1,000</span></div>
+      <div class="cost-total-row"><span class="cost-total-label">Estimated cost for camp season</span><span class="cost-total-val red">$12,000+</span></div>
+    </div>
+    <div>
+      <div class="cost-col-title grn">✓ With INVEXA — All included</div>
+      <div class="cost-item"><span class="cost-name">Meta ads — managed & optimized</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-item"><span class="cost-name">Camp enrollment landing page</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-item"><span class="cost-name">CRM + parent follow-up automation</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-item"><span class="cost-name">SMS/email nurture sequences</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-item"><span class="cost-name">Ad creatives (static designs)</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-item"><span class="cost-name">Analytics + weekly reporting</span><span class="cost-val grn">Included</span></div>
+      <div class="cost-total-row"><span class="cost-total-label">All this for</span><span class="cost-total-val grn">$3,500/mo</span></div>
+    </div>
+  </div>
+  <div class="cost-save ani-4">You save thousands — and get one team responsible for the result. Content creation available as an add-on.</div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 9: THE INVESTMENT == -->
+<div class="slide" id="s8">
+  <div class="lbl ani-1">The Investment</div>
+  <div class="h2 ani-2">One simple structure.<br><em>No setup fees. No contracts. No surprises.</em></div>
+  <div class="price-grid ani-3">
+    <div class="pbox feat">
+      <div class="pbox-badge">Camp Launch Package</div>
+      <div class="pbox-tag">Monthly — everything included</div>
+      <div class="pbox-amt">$3,500</div>
+      <div class="pbox-period">Ads · Landing page · CRM<br>Automation · Creatives · Reporting</div>
+      <div class="pbox-note">Month to month · No annual contract</div>
+    </div>
+    <div class="pbox">
+      <div class="pbox-tag">Ad Spend (Separate)</div>
+      <div class="pbox-amt">$50–$80<span style="font-size:18px;color:var(--cream)">/day</span></div>
+      <div class="pbox-period">Paid directly to Meta by you<br>100% separate from our fee</div>
+      <div class="pbox-note">~$1,500–$2,400/mo · You control the budget</div>
+    </div>
+  </div>
+  <div class="invest-note ani-4">
+    $3,500/mo is the system fee. Ad spend ($50–$80/day) is paid directly by you to Meta — completely separate.
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 10: GUARANTEE == -->
+<div class="slide" id="s9">
+  <div class="lbl ani-1">The Guarantee</div>
+  <div class="guar-box ani-2">
+    <span class="guar-icon">&#128737;</span>
+    <div class="guar-text">
+      If in the first 30 days the system doesn't generate at least 40 qualified parent inquiries — we work the next month at no cost until we hit the target.
+    </div>
+    <div class="guar-sub" style="margin-top:18px;font-size:15px;color:var(--cream);line-height:1.7;">
+      This guarantee is conditional. It requires that your team follows the basic operational standards that make the system work — including responding to every lead within 4 hours of receiving it, providing requested content assets on time, and maintaining active ad spend at the agreed level. We deliver the leads. The speed of follow-up determines conversion.
+    </div>
+    <div class="guar-pills">
+      <div class="gpill">40 parent inquiries in 30 days</div>
+      <div class="gpill">Leads must be contacted within 4 hours</div>
+      <div class="gpill">Next month free if not met</div>
+      <div class="gpill">Month to month, cancel anytime</div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 11: WHY TRUFACE == -->
+<div class="slide" id="s10">
+  <div class="lbl ani-1">Why INVEXA for This</div>
+  <div class="h2 ani-2">Built for wellness brands.<br><em>Built for South Florida.</em></div>
+  <div class="why-wrap ani-3">
+    <div class="why-point">
+      <div class="why-icon">&#127973;</div>
+      <div>
+        <div class="why-title">We specialize in wellness & health brands in South Florida</div>
+        <div class="why-desc">This isn't our first rodeo. We understand the regulatory landscape, the trust factors, and the messaging that resonates with families seeking mental health support.</div>
+      </div>
+    </div>
+    <div class="why-point">
+      <div class="why-icon">&#127758;</div>
+      <div>
+        <div class="why-title">Bilingual team (English + Spanish) — reaching ALL Miami parents</div>
+        <div class="why-desc">Miami is bilingual. Your marketing should be too. We create content and campaigns in both languages to maximize your reach across Miami-Dade and Broward.</div>
+      </div>
+    </div>
+    <div class="why-point">
+      <div class="why-icon">&#128156;</div>
+      <div>
+        <div class="why-title">We understand the sensitivity of mental health messaging</div>
+        <div class="why-desc">Marketing therapy and youth programs requires empathy, not hype. We craft messaging that builds trust with parents making emotional decisions about their children.</div>
+      </div>
+    </div>
+    <div class="why-point">
+      <div class="why-icon">&#127909;</div>
+      <div>
+        <div class="why-title">Production quality that builds trust</div>
+        <div class="why-desc">Parents judge programs by how they look online. Professional, authentic content signals quality care — and that's what drives enrollment decisions.</div>
+      </div>
+    </div>
+    <div class="why-point">
+      <div class="why-icon">&#9889;</div>
+      <div>
+        <div class="why-title">Fast execution — system live in 7 days</div>
+        <div class="why-desc">Camp is in 4 weeks. We don't do 90-day onboarding. Discovery, content, landing page, and ads — all live within the first week.</div>
+      </div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 12: TIMELINE == -->
+<div class="slide" id="s11">
+  <div class="lbl ani-1">Implementation Timeline</div>
+  <div class="h2 ani-2">From zero to live campaigns<br><em>in 3 weeks.</em></div>
+  <div class="tl-wrap ani-3">
+    <div class="tl-step">
+      <div class="tl-dot">&#128269;</div>
+      <div class="tl-day">Week 1</div>
+      <div class="tl-label">Discovery · Market research · Strategy · Content collection</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">&#127760;</div>
+      <div class="tl-day">Week 2</div>
+      <div class="tl-label">Landing page built · CRM configured · Ad creatives designed · Automations set up</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">&#128241;</div>
+      <div class="tl-day">Week 3</div>
+      <div class="tl-label">Campaigns go live · First parent inquiries flowing · Enrollment begins</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">&#128200;</div>
+      <div class="tl-day">Week 4+</div>
+      <div class="tl-label">Optimization · Enrollment push · Pre-camp communications · Scale what works</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">&#9989;</div>
+      <div class="tl-day">Day 1</div>
+      <div class="tl-label">Strategy call to align on goals, assets, and timeline</div>
+    </div>
+  </div>
+  <div class="body ani-4" style="margin-top:26px;font-size:15px">
+    Two weeks of prep. Week 3 we go live.<br>
+    <strong>You built this program from nothing. Let us make sure the world sees it.</strong>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+<!-- == SLIDE 13: HOW WE COMMUNICATE == -->
+<div class="slide" id="s12">
+  <div class="lbl ani-1">How We Work Together</div>
+  <div class="h2 ani-2">Your tools. Your channels.<br><em>Everything in one place.</em></div>
+  <div class="arch-grid ani-3" style="grid-template-columns:repeat(5,1fr);max-width:1000px;">
+    <div class="arch-card">
+      <span class="arch-num">01</span>
+      <span class="arch-icon">&#128172;</span>
+      <div class="arch-name">WhatsApp Group</div>
+      <div class="arch-desc">Direct communication between our team and yours. Quick updates, questions, and real-time coordination — all in one group chat.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">02</span>
+      <span class="arch-icon">&#127916;</span>
+      <div class="arch-name">Frame.io</div>
+      <div class="arch-desc">Content approval and revision platform. Review edits, leave time-stamped comments, and approve deliverables — no back-and-forth emails.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">03</span>
+      <span class="arch-icon">&#128193;</span>
+      <div class="arch-name">Google Drive</div>
+      <div class="arch-desc">Shared folder for all assets, files, and resources. Photos, videos, brand guidelines, and documents — organized and accessible anytime.</div>
+    </div>
+    <div class="arch-card">
+      <span class="arch-num">04</span>
+      <span class="arch-icon">&#128203;</span>
+      <div class="arch-name">Trello</div>
+      <div class="arch-desc">Task and document management. Track what we need from you, what's in progress, and what's been completed — full transparency on every deliverable.</div>
+    </div>
+    <div class="arch-card" style="border-color:var(--blue);">
+      <span class="arch-num">05</span>
+      <span class="arch-icon">&#129302;</span>
+      <div class="arch-name">TruFace CRM</div>
+      <div class="arch-desc">Lead qualification and enrollment tracking. Every parent inquiry captured, followed up, and tracked through to enrollment. <strong style="color:var(--blue-lt);">$19/mo — separate subscription, required.</strong></div>
+    </div>
+  </div>
+  <div class="tf">INVEXA</div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="nav">
+  <button class="nb" id="bp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <div class="dots" id="dots"></div>
+  <button class="nb" id="bn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+</div>
+<div class="snum" id="snum">1 / 12</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+const numEl  = document.getElementById('snum');
+let cur = 0, startX = 0;
+
+slides.forEach((_,i)=>{
+  const d = document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>go(i));
+  dotsEl.appendChild(d);
+});
+
+function go(n){
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur=(n+slides.length)%slides.length;
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  numEl.textContent=(cur+1)+' / '+slides.length;
+  if(cur===5) startCounters();
+}
+
+document.getElementById('bp').addEventListener('click',()=>go(cur-1));
+document.getElementById('bn').addEventListener('click',()=>go(cur+1));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{
+  const d=startX-e.changedTouches[0].clientX;
+  if(Math.abs(d)>40) go(d>0?cur+1:cur-1);
+},{passive:true});
+
+let counted=false;
+function startCounters(){
+  if(counted) return; counted=true;
+  animCount(document.getElementById('n1'),202000,'$','K',1000);
+}
+function animCount(el,target,pre,suf,div){
+  let s=0,dur=1400;
+  const step=ts=>{
+    if(!s)s=ts;
+    const p=Math.min((ts-s)/dur,1);
+    const e=1-Math.pow(1-p,3);
+    el.textContent=pre+Math.round(e*target/div)+suf;
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=pre+(target/div)+suf;
+  };
+  requestAnimationFrame(step);
+}
+
+// Canvas particles
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+let W,H,pts=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();
+window.addEventListener('resize',()=>{resize();init()});
+class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.28;this.vy=(Math.random()-.5)*.28;this.r=Math.random()*1.3+.4;this.a=Math.random()*.35+.1}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}}
+function init(){pts=[];const n=Math.floor(W*H/13000);for(let i=0;i<n;i++)pts.push(new P())}
+init();
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p=>p.update());
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<130){ctx.beginPath();ctx.strokeStyle=`rgba(30,123,189,${.14*(1-d/130)})`;ctx.lineWidth=.6;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}
+    }
+    ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,pts[i].r,0,Math.PI*2);ctx.fillStyle=`rgba(108,175,171,${pts[i].a})`;ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
